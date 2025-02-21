@@ -23,7 +23,7 @@ const Product = ({ product }) => {
         </Rating>
       </Card.Text>
 
-      <Card.Text as="h3">R$&nbsp;{product.price.toFixed(2)}</Card.Text>
+      <Card.Text as="h3">R$&nbsp;{product.price.toFixed(2).replace('.', ',')}</Card.Text>
 
       </Card.Body>
     </Card>

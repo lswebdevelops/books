@@ -1,6 +1,7 @@
 import React from "react";
 import { Badge, Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { FaShoppingCart, FaUser, FaUserTie } from "react-icons/fa";
+import {  FaUser, FaUserTie } from "react-icons/fa";
+import { FiHeart } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "../assets/logohw.png";
 import { useNavigate, Link } from "react-router-dom";
@@ -49,7 +50,7 @@ const Header = () => {
             <Nav className="ms-auto">
               <SearchBox />
               <Nav.Link href="/cart">
-                <FaShoppingCart style={{ fontSize: "1.2rem" }} />
+                <FiHeart style={{ fontSize: "1.2rem" }} />
 
                 {cartItems.length > 0 && (
                   <Badge pill bg="success" style={{ marginLeft: "5px" }}>
@@ -77,10 +78,7 @@ const Header = () => {
                 <NavDropdown title={<FaUserTie size={20} />} id="adminmenu">
                   <NavDropdown.Item as={Link} to="/admin/productlist">
                     Produtos
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/admin/orderlist">
-                    Pedidos
-                  </NavDropdown.Item>
+                  </NavDropdown.Item>                
                   <NavDropdown.Item as={Link} to="/admin/userlist">
                     Usuários
                   </NavDropdown.Item>

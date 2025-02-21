@@ -76,24 +76,33 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
-          <Row>
-            <Col md={5}>
+          <Row className="upper-div-product">
+            <Col md={3} sm={8}>
               <Image src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={4}>
+            <Col md={6}>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
                 <ListGroup.Item>
+                  {/*  category > autor */}
+                  <h4>{product.category}</h4>
+                </ListGroup.Item>
+                <ListGroup.Item>
                   <Rating
                     value={product.rating}
-                    text={`${product.numReviews} reviews`}
+                    text={`${product.numReviews} ${
+                      product.numReviews === 1 ? "avaliação" : "avaliações"
+                    }`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Preço: R$&nbsp;{product.price.toFixed(2)}</ListGroup.Item>
+
                 <ListGroup.Item>
-                  Descrição: {product.description}
+                  Preço: R$&nbsp;{product.price.toFixed(2).replace('.',',')} + frete
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>Resenha:</strong> {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
@@ -102,9 +111,9 @@ const ProductScreen = () => {
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     <Row>
-                      <Col>Price:</Col>
+                      <Col>Preço:</Col>
                       <Col>
-                        <strong>R$&nbsp;{product.price.toFixed(2)}</strong>
+                        <strong>R$&nbsp;{product.price.toFixed(2).replace('.',',')}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -120,56 +129,52 @@ const ProductScreen = () => {
                       </Col>
                     </Row>
                   </ListGroup.Item>
+
                   {product.countInStock > 0 && (
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Qty</Col>
-                        <Col>
-                          <Form.Control
-                            as="select"
-                            value={qty}
-                            onChange={(e) => setQty(Number(e.target.value))}
-                          >
-                            {[...Array(product.countInStock).keys()].map(
-                              (x) => (
-                                <option key={x + 1} value={x + 1}>
-                                  {x + 1}
-                                </option>
-                              )
-                            )}
-                          </Form.Control>
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
+                    <Row className="available-books">
+                      <Col>Disponíveis: {product.countInStock}</Col>
+                    </Row>
                   )}
-                  <Button
-                    className="btn-block"
-                    type="button"
-                    disabled={product.countInStock === 0}
-                    onClick={addToCartHandler}
-                  >
-                    Adicionar ao Carrinho
-                  </Button>
+                  {product.countInStock > 0 && (
+                    <Button
+                      className="btn-block"
+                      type="button"
+                      disabled={product.countInStock === 0}
+                    >
+                      <a
+                        href="https://www.mercadolivre.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "white", textDecoration: "none" }}
+                      >
+                        Comprar no Mercado Livre
+                      </a>
+                    </Button>
+                  )}
                 </ListGroup>
               </Card>
             </Col>
           </Row>
           <Row className="review">
             <Col md={6}>
-              <h2>Reviews</h2>
-              {product.reviews.length === 0 && <Message>Nenhum Review</Message>}
+              <h2>Avaliações</h2>
+              {product.reviews.length === 0 && (
+                <Message>Nenhum Avaliação</Message>
+              )}
               <ListGroup variant="flush">
                 {product.reviews.map((review) => (
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} />
-                    <p>{review.createdAt.substring(0, 10)}</p>
+                    <p>
+                      {new Date(review.createdAt).toLocaleDateString("pt-BR")}
+                    </p>
                     <p>{review.comment}</p>
                   </ListGroup.Item>
                 ))}
 
                 <ListGroup.Item>
-                  <h2>Deixe seu review</h2>
+                  <h2>Deixe sua Avaliação</h2>
 
                   {loadingProductReview && <Loader />}
 
@@ -212,7 +217,8 @@ const ProductScreen = () => {
                     </Form>
                   ) : (
                     <Message>
-                      Por favor, <Link to="/login">logue aqui</Link> para deixar sua avaliação
+                      Por favor, <Link to="/login">logue aqui</Link> para deixar
+                      sua avaliação
                     </Message>
                   )}
                 </ListGroup.Item>

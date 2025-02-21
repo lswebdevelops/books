@@ -72,19 +72,18 @@ const ProductEditScreen = () => {
 
   const uploadFileHandler = async (e) => {
     const formData = new FormData();
-    formData.append('image', e.target.files[0]);
+    formData.append("image", e.target.files[0]);
     try {
       const res = await uploadProductImage(formData).unwrap();
       toast.success(res.message);
-      
+
       // Normalize the path to always use forward slashes
-      const imageUrl = res.image.replace(/\\/g, '/');
-      setImage(imageUrl);  // Set the normalized image URL
+      const imageUrl = res.image.replace(/\\/g, "/");
+      setImage(imageUrl); // Set the normalized image URL
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
   };
-  
 
   return (
     <>
@@ -113,10 +112,17 @@ const ProductEditScreen = () => {
             <Form.Group controlId="price" className="my-2">
               <Form.Label>Preço</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Digite preço"
-                value={price}
-                onChange={(e) => setPrice(parseFloat(e.target.value))}
+                value={price.toString().replace(".", ",")}
+                onChange={(e) => {
+                  // Substitui vírgula por ponto para conversão numérica correta
+                  const value = e.target.value.replace(",", ".");
+                  // Verifica se é um número válido antes de atualizar o estado
+                  if (!isNaN(value)) {
+                    setPrice(value);
+                  }
+                }}
               ></Form.Control>
             </Form.Group>
 
@@ -169,12 +175,12 @@ const ProductEditScreen = () => {
             </Form.Group>
 
             <Form.Group controlId="description" className="my-2">
-              <Form.Label>Descrição</Form.Label>
+              <Form.Label>Resenha</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Digite uma descrição da obra"
                 value={description}
-                maxLength="1000"
+                maxLength="2000"
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
             </Form.Group>

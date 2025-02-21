@@ -55,13 +55,13 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={3}>
-        <h2>User Profile</h2>
+        <h2>Meu Usuário</h2>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name" className="my-2">
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Nome</Form.Label>
             <Form.Control
               type="name"
-              placeholder="Enter name"
+              placeholder="Digite um novo nome"
               value={name}
               onChange={(e) => setName(e.target.value)}
             ></Form.Control>
@@ -71,96 +71,37 @@ const ProfileScreen = () => {
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              placeholder="Entre novo email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             ></Form.Control>
           </Form.Group>
 
           <Form.Group controlId="password" className="my-2">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Nova Senha</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Enter password"
+              placeholder="Digite sua senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
 
           <Form.Group controlId="confirmPassword" className="my-2">
-            <Form.Label>Confirm Password</Form.Label>
+            <Form.Label>Confirme senha</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Confirm password"
+              placeholder="Confirme sua nova senha"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
 
           <Button type="submit" variant="primary" className="my-2">
-            Update
+            Salvar
           </Button>
           {loadingUpdateProfile && <Loader />}
         </Form>
-      </Col>
-      <Col md={9}>
-        <h2>My Orders</h2>
-        {isLoading ? (
-          <Loader />
-        ) : error ? (
-          <Message variant="danger">
-            {error?.data?.message || error.error}
-          </Message>
-        ) : (
-          <Table striped hover responsive className="table-sm">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders?.map((order) => (
-                <tr key={order._id}>
-                  <td>{order._id}</td>
-                  {/* <td>{order.createdAt.substring(0, 10)}</td> */}
-                  <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-                  <td>{order.totalPrice}</td>
-                  <td>
-                    {order.isPaid ? (
-                      order.paidAt.substring(0, 10)
-                    ) : (
-                      <FaTimes style={{ color: "red" }} />
-                    )}
-                  </td>
-
-                  <td>
-                    {order.isDelivered ? (
-                      order.deliveredAt.substring(0, 10)
-                    ) : (
-                      <FaTimes style={{ color: "red" }} />
-                    )}
-                  </td>
-                  <td>
-                    <Link to={`/order/${order._id}`}>
-                      <Button
-                        className="btn-sm"
-                        variant="dark"
-                        style={{ color: "white" }}
-                      >
-                        Details
-                      </Button>
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        )}
       </Col>
     </Row>
   );
