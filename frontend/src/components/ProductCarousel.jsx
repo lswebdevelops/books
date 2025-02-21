@@ -25,8 +25,9 @@ const ProductCarousel = () => {
             }}
           />
           <Carousel.Caption className='carousel-caption'>
-            <h2 className='text-white text-right'>
-              {product.name} (${product.price})
+            <h2 className='text-white text-right carousel-letters' >
+              {product.name} 
+              {/* (R$&nbsp;{product.price}) */}
               <br />
              
             </h2>

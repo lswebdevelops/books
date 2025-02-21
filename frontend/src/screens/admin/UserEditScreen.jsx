@@ -51,10 +51,10 @@ const UserEditScreen = () => {
   return (
     <>
       <Link to='/admin/userlist' className='btn btn-light my-3'>
-        Go Back
+        Voltar
       </Link>
       <FormContainer>
-        <h1>Edit User</h1>
+        <h1>Editar Usuário</h1>
         {loadingUpdate && <Loader />}
         {isLoading ? (
           <Loader />
@@ -65,20 +65,20 @@ const UserEditScreen = () => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group className='my-2' controlId='name'>
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nome</Form.Label>
               <Form.Control
                 type='name'
-                placeholder='Enter name'
+                placeholder='Digite nome'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group className='my-2' controlId='email'>
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>Endereço de email</Form.Label>
               <Form.Control
                 type='email'
-                placeholder='Enter email'
+                placeholder='Digite email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></Form.Control>
@@ -87,14 +87,14 @@ const UserEditScreen = () => {
             <Form.Group className='my-2' controlId='isAdmin'>
               <Form.Check
                 type='checkbox'
-                label='Is Admin'
+                label='Usuário é Adiministrador?'
                 checked={isAdmin}
                 onChange={(e) => setIsAdmin(e.target.checked)}
               ></Form.Check>
             </Form.Group>
 
             <Button type='submit' variant='primary'>
-              Update
+              Salvar
             </Button>
           </Form>
         )}

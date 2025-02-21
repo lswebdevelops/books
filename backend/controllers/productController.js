@@ -32,7 +32,7 @@ const getProductById = asyncHandler(async (req, res) => {
     res.json(product);
   } else {
     res.status(404);
-    throw new Error("Resource not found.");
+    throw new Error("Recurso não encontrado.");
   }
 });
 
@@ -42,15 +42,15 @@ const getProductById = asyncHandler(async (req, res) => {
 
 const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
-    name: "Sample name",
+    name: "Título da obra",
     price: 0,
     user: req.user._id,
     image: "/images/sample.jpg",
-    brand: "Sample brand",
-    category: "Sample category",
+    brand: "Editora",
+    category: "Harry Wiese",
     countInStock: 0,
     numReviews: 0,
-    description: "Sample description",
+    description: "Descrição",
   });
 
   const createdProduct = await product.save();
@@ -93,10 +93,10 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
   if (product) {
     await Product.deleteOne({ _id: product._id });
-    res.status(200).json({ message: "Product deleted" });
+    res.status(200).json({ message: "Produto deletado" });
   } else {
     res.status(404);
-    throw new Error("Resource not found");
+    throw new Error("Recurso não encontrado");
   }
 });
 
@@ -115,7 +115,7 @@ const createProductReview = asyncHandler(async (req, res) => {
 
     if (alreadyReviewed) {
       res.status(400);
-      throw new Error("Product already reviewed.");
+      throw new Error("Produto já revisado.");
     }
     const review = {
       name: req.user.name,
@@ -133,10 +133,10 @@ const createProductReview = asyncHandler(async (req, res) => {
       product.reviews.length;
 
     await product.save();
-    res.status(201).json({ message: "Review added" });
+    res.status(201).json({ message: "Review adicionado" });
   } else {
     res.status(404);
-    throw new Error("Resource not found");
+    throw new Error("Recurso não encontrado");
   }
 });
 

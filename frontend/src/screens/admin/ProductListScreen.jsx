@@ -35,7 +35,7 @@ const ProductListScreen = () => {
   };
 
   const createProductHandler = async () => {
-    if (!window.confirm("Are you sure you want to create a new product?")) {
+    if (!window.confirm("Tem certeza de que deseja criar um novo produto?")) {
       return;
     }
     try {
@@ -54,12 +54,12 @@ const ProductListScreen = () => {
           page={data?.page}
           isAdmin={true}
             />
-          <h1>Products</h1>
+          <h1>Produtos</h1>
         </Col>
         <Col className="text-end">
           <Button onClick={createProductHandler} className="btn-sm m-3">
             <FaEdit />
-            Create Product
+            &nbsp; Criar Produto
           </Button>
         </Col>
       </Row>
@@ -75,11 +75,11 @@ const ProductListScreen = () => {
           <Table striped hover responsive className="table-sm">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
+                <th>Código</th>
+                <th>Título</th>
+                <th>Preço</th>
+                <th>Autor</th>
+                <th>Editora</th>
                 <th></th>
               </tr>
             </thead>

@@ -19,12 +19,12 @@ const OrderListScreen = () => {
         <Table striped hover responsive className="table-sm">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>USER</th>
-              <th>DATE</th>
-              <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
+              <th>Código</th>
+              <th>Usuário</th>
+              <th>Data</th>
+              <th>Total</th>
+              <th>Pago</th>
+              <th>Entregue</th>
               <th></th>
             </tr>
           </thead>
@@ -56,7 +56,7 @@ const OrderListScreen = () => {
                       style={{ color: "white" }}
                       className="btn-sm"
                     >
-                      Details
+                      Detalhes
                     </Button>
                   </Link>
                 </td>

@@ -89,10 +89,10 @@ const ProductEditScreen = () => {
   return (
     <>
       <Link to="/admin/productlist" className="btn btn-light my-3">
-        Go Back
+        Voltar
       </Link>
       <FormContainer>
-        <h1>Edit Product</h1>
+        <h1>Editar Produto</h1>
         {loadingUpdate && <Loader />}
         {isLoading ? (
           <Loader />
@@ -101,82 +101,85 @@ const ProductEditScreen = () => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name" className="my-2">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Título</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter name"
+                placeholder="Digite título"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="price" className="my-2">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>Preço</Form.Label>
               <Form.Control
                 type="number"
-                placeholder="Enter price"
+                placeholder="Digite preço"
                 value={price}
                 onChange={(e) => setPrice(parseFloat(e.target.value))}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="image" className="my-2">
-              <Form.Label>Image</Form.Label>
+              <Form.Label>Imagem</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter image URL"
+                placeholder="Escolha arquivo"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
               <Form.Control
                 type="file"
-                label="Choose file"
+                label="Escolha arquivo"
                 onChange={uploadFileHandler}
               ></Form.Control>
               {loadingUpload && <Loader />}
             </Form.Group>
 
             <Form.Group controlId="brand" className="my-2">
-              <Form.Label>Brand</Form.Label>
+              {/* editora > brand */}
+              <Form.Label>Editora</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter brand"
+                placeholder="Nome da editora"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="countInStock" className="my-2">
-              <Form.Label>Count In Stock</Form.Label>
+              <Form.Label>Quantidade em estoque</Form.Label>
               <Form.Control
                 type="number"
-                placeholder="Enter count in stock"
+                placeholder="Digite a quantidade em estoque"
                 value={countInStock}
                 onChange={(e) => setCountInStock(parseInt(e.target.value))}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="category" className="my-2">
-              <Form.Label>Category</Form.Label>
+              {/*  autor > category */}
+              <Form.Label>Autor</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter category"
+                placeholder="Nome do autor"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="description" className="my-2">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Descrição</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter description"
+                placeholder="Digite uma descrição da obra"
                 value={description}
+                maxLength="1000"
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
             </Form.Group>
             <Button type="submit" variant="primary" className="my-2">
-              Update
+              Salvar
             </Button>
           </Form>
         )}

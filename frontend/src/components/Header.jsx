@@ -1,8 +1,8 @@
 import React from "react";
 import { Badge, Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaShoppingCart, FaUser, FaUserTie } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
-import logo from "../assets/logo.png";
+import logo from "../assets/logohw.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
@@ -33,9 +33,17 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
         <Container>
           <Navbar.Brand href="/">
-            <img src={logo} alt="logo of Proshop" />
-            ProShop{" "}
+            <img src={logo} alt="logo of Proshop" className="logo-hw" />
           </Navbar.Brand>
+
+          <Navbar.Brand
+            // href="https://www.skoob.com.br/autor/6151-harry-wiese"
+            href="/"
+            // target="__blank"
+          >
+            HARRY WIESE &nbsp;
+          </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
@@ -53,28 +61,28 @@ const Header = () => {
                 <>
                   <NavDropdown title={userInfo.name} id="username">
                     <NavDropdown.Item as={Link} to="/profile">
-                      Profile
+                      Meu Perfil
                     </NavDropdown.Item>
                     <NavDropdown.Item onClick={logoutHandler}>
-                      Logout
+                      Sair
                     </NavDropdown.Item>
                   </NavDropdown>
                 </>
               ) : (
                 <Nav.Link as={Link} to="/login">
-                  <FaUser /> Sign In
+                  <FaUser /> Logar
                 </Nav.Link>
               )}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title="Admin" id="adminmenu">
+                <NavDropdown title={<FaUserTie size={20} />} id="adminmenu">
                   <NavDropdown.Item as={Link} to="/admin/productlist">
-                    Products
+                    Produtos
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/admin/orderlist">
-                    Orders
+                    Pedidos
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/admin/userlist">
-                    Users
+                    Usuários
                   </NavDropdown.Item>
                 </NavDropdown>
               )}

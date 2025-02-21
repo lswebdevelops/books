@@ -47,8 +47,19 @@ table th {
   position: absolute;
   width: 100%;
   left: 0;
-  right: 0;
+  right: 10; 
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
 
+.logo-hw {
+  height: 40px;
+  border-radius: 10px;
+  margin-right: 5px;
+  ;
+}
+.carousel-letters{
+  margin-right: 65px;
+  
+  
+}

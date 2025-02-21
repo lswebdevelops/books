@@ -29,7 +29,7 @@ const UserListScreen = () => {
 
   return (
     <>
-      <h1>Users</h1>
+      <h1>Usuários</h1>
       {loadingDelete && <Loader />}
       {isLoading ? (
         <Loader />
@@ -41,10 +41,10 @@ const UserListScreen = () => {
         <Table striped bordered hover responsive className='table-sm'>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>ADMIN</th>
+              <th>Código</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Administrador</th>
               <th></th>
             </tr>
           </thead>
@@ -65,7 +65,7 @@ const UserListScreen = () => {
                 </td>
                 <td>
                   {/* (2x) if enabled> the option for deleting/ editing admin disappears. */}
-                  {/* {!user.isAdmin && ( */} 
+                  {!user.isAdmin && ( 
                     <>
                       <Button
                         as={Link}
@@ -84,9 +84,10 @@ const UserListScreen = () => {
                         <FaTrash style={{ color: 'white' }} />
                       </Button>
                     </>
-                  {/*  if enabled> the option for deleting/ editing admin disappears. */}
+                  
 
-                  {/* )} */}
+                  )}
+
                 </td>
               </tr>
             ))}
