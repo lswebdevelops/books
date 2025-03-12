@@ -6338,11 +6338,14 @@ fieldset:disabled .btn {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: inline-block;
-  width: 2rem;
-  height: 2rem;
+  width: 2.2rem;
+  height: 2.3rem;
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: 100% 100%;
+  background-color: grey;
+  border-radius: 5px;
+ 
 }
 
 /* rtl:options: {

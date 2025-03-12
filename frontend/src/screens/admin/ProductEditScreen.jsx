@@ -91,7 +91,7 @@ const ProductEditScreen = () => {
         Voltar
       </Link>
       <FormContainer>
-        <h1>Editar Produto</h1>
+        <h1>Editar Livro</h1>
         {loadingUpdate && <Loader />}
         {isLoading ? (
           <Loader />
@@ -178,6 +178,8 @@ const ProductEditScreen = () => {
               <Form.Label>Resenha</Form.Label>
               <Form.Control
                 type="text"
+                as="textarea"
+                 rows={5}
                 placeholder="Digite uma descrição da obra"
                 value={description}
                 maxLength="2000"

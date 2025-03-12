@@ -35,7 +35,7 @@ const ProductListScreen = () => {
   };
 
   const createProductHandler = async () => {
-    if (!window.confirm("Tem certeza de que deseja criar um novo produto?")) {
+    if (!window.confirm("Tem certeza de que deseja criar um novo livro?")) {
       return;
     }
     try {
@@ -54,12 +54,12 @@ const ProductListScreen = () => {
           page={data?.page}
           isAdmin={true}
             />
-          <h1>Produtos</h1>
+          <h1>Livros</h1>
         </Col>
         <Col className="text-end">
           <Button onClick={createProductHandler} className="btn-sm m-3">
             <FaEdit />
-            &nbsp; Criar Produto
+            &nbsp; Criar Livro
           </Button>
         </Col>
       </Row>

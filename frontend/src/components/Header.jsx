@@ -34,7 +34,7 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
         <Container>
           <Navbar.Brand href="/">
-            <img src={logo} alt="logo of Proshop" className="logo-hw" />
+            <img src={logo} alt="logo of HW" className="logo-hw" />
           </Navbar.Brand>
 
           <Navbar.Brand
@@ -77,7 +77,7 @@ const Header = () => {
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title={<FaUserTie size={20} />} id="adminmenu">
                   <NavDropdown.Item as={Link} to="/admin/productlist">
-                    Produtos
+                    Livros
                   </NavDropdown.Item>                
                   <NavDropdown.Item as={Link} to="/admin/userlist">
                     Usuários

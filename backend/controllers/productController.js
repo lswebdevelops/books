@@ -93,7 +93,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
   if (product) {
     await Product.deleteOne({ _id: product._id });
-    res.status(200).json({ message: "Produto deletado" });
+    res.status(200).json({ message: "Livro deletado" });
   } else {
     res.status(404);
     throw new Error("Recurso não encontrado");
@@ -115,7 +115,7 @@ const createProductReview = asyncHandler(async (req, res) => {
 
     if (alreadyReviewed) {
       res.status(400);
-      throw new Error("Produto já revisado.");
+      throw new Error("Obra já avaliada.");
     }
     const review = {
       name: req.user.name,
@@ -133,7 +133,7 @@ const createProductReview = asyncHandler(async (req, res) => {
       product.reviews.length;
 
     await product.save();
-    res.status(201).json({ message: "Review adicionado" });
+    res.status(201).json({ message: "Avaliação adicionada" });
   } else {
     res.status(404);
     throw new Error("Recurso não encontrado");
