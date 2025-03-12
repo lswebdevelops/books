@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge, Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import {  FaUser, FaUserTie } from "react-icons/fa";
-import { FiHeart } from "react-icons/fi";
+import { FaUser, FaUserTie } from "react-icons/fa";
+
 import { useSelector, useDispatch } from "react-redux";
 import logo from "../assets/logohw.png";
 import { useNavigate, Link } from "react-router-dom";
@@ -11,7 +11,6 @@ import SearchBox from "./SearchBox";
 import { resetCart } from "../slices/cartSlice";
 
 const Header = () => {
-  const { cartItems } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
@@ -38,11 +37,14 @@ const Header = () => {
           </Navbar.Brand>
 
           <Navbar.Brand
-            // href="https://www.skoob.com.br/autor/6151-harry-wiese"
             href="/"
-            // target="__blank"
           >
             HARRY WIESE &nbsp;
+          </Navbar.Brand>
+
+          {/* Poemas link ao lado de Harry Wiese */}
+          <Navbar.Brand as={Link} to="/poems">
+            Meus Poemas &nbsp;
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
@@ -51,7 +53,6 @@ const Header = () => {
               <SearchBox />
               {/* <Nav.Link href="/cart">
                 <FiHeart style={{ fontSize: "1.2rem" }} />
-
                 {cartItems.length > 0 && (
                   <Badge pill bg="success" style={{ marginLeft: "5px" }}>
                     {cartItems.reduce((a, c) => a + c.qty, 0)}
@@ -78,7 +79,10 @@ const Header = () => {
                 <NavDropdown title={<FaUserTie size={20} />} id="adminmenu">
                   <NavDropdown.Item as={Link} to="/admin/productlist">
                     Livros
-                  </NavDropdown.Item>                
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/admin/poemlist">
+                    Poemas
+                  </NavDropdown.Item> {/* Novo item Poemas */}
                   <NavDropdown.Item as={Link} to="/admin/userlist">
                     Usuários
                   </NavDropdown.Item>

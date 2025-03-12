@@ -29,6 +29,10 @@ import ProductListScreen from "./screens/admin/ProductListScreen";
 import ProductEditScreen from "./screens/admin/ProductEditScreen";
 import UserListScreen from "./screens/admin/UserListScreen";
 import UserEditScreen from "./screens/admin/UserEditScreen";
+import PoemListScreen from "./screens/admin/PoemListScreen"; // Import PoemListScreen
+import PoemEditScreen from "./screens/admin/PoemEditScreen"; // Import PoemEditScreen
+import PoemCreateScreen from "./screens/admin/PoemCreateScreen"; // Import PoemCreateScreen
+import PoemScreen from "./screens/PoemScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,14 +40,15 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="/search/:keyword" element={<HomeScreen />} />
       <Route path="/page/:pageNumber" element={<HomeScreen />} />
-      <Route
-        path="/search/:keyword/page/:pageNumber"
-        element={<HomeScreen />}
-      />
+      <Route path="/search/:keyword/page/:pageNumber" element={<HomeScreen />} />
       <Route path="/product/:id" element={<ProductScreen />} />
       <Route path="/cart/" element={<CartScreen />} />
       <Route path="/login/" element={<LoginScreen />} />
       <Route path="/register/" element={<RegisterScreen />} />
+      <Route path="/poems" element={<PoemScreen />} />
+
+      <Route path="/poem/:id" element={<PoemScreen />} />
+
 
       {/* user private route */}
       <Route path="" element={<PrivateRoute />}>
@@ -58,13 +63,16 @@ const router = createBrowserRouter(
       <Route path="" element={<AdminRoute />}>
         <Route path="/admin/orderlist/" element={<OrderListScreen />} />
         <Route path="/admin/productlist/" element={<ProductListScreen />} />
-        <Route
-          path="/admin/productlist/:pageNumber/"
-          element={<ProductListScreen />}
-        />
+        <Route path="/admin/productlist/:pageNumber/" element={<ProductListScreen />} />
         <Route path="/admin/product/:id/edit" element={<ProductEditScreen />} />
         <Route path="/admin/userlist/" element={<UserListScreen />} />
         <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
+
+        {/* Poem admin routes */}        
+        <Route path="/admin/poemlist/" element={<PoemListScreen />} /> {/* Poem List Screen */}
+        <Route path="/admin/poems/:pageNumber/" element={<PoemListScreen />} /> {/* Paginated Poem List */}
+        <Route path="/admin/poem/create" element={<PoemCreateScreen />} /> {/* Create Poem Screen */}
+        <Route path="/admin/poem/:id/edit" element={<PoemEditScreen />} /> {/* Edit Poem Screen */}
       </Route>
     </Route>
   )
