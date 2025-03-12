@@ -49,7 +49,7 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <SearchBox />
-              <Nav.Link href="/cart">
+              {/* <Nav.Link href="/cart">
                 <FiHeart style={{ fontSize: "1.2rem" }} />
 
                 {cartItems.length > 0 && (
@@ -57,7 +57,7 @@ const Header = () => {
                     {cartItems.reduce((a, c) => a + c.qty, 0)}
                   </Badge>
                 )}
-              </Nav.Link>
+              </Nav.Link> */}
               {userInfo ? (
                 <>
                   <NavDropdown title={userInfo.name} id="username">
