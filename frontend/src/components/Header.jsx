@@ -87,9 +87,11 @@ const Header = () => {
                   <NavDropdown.Item as={Link} to="/admin/poemlist">
                     Editar Poemas
                   </NavDropdown.Item>{" "}
-                  {/* Novo item Poemas */}
                   <NavDropdown.Item as={Link} to="/admin/userlist">
                     Editar Usuários
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/admin/email-list">
+                    Email Usuários
                   </NavDropdown.Item>
                 </NavDropdown>
               )}

@@ -85,35 +85,29 @@ const ProductScreen = () => {
 
               {/*  category > autor */}
               <h4>{product.category}</h4>
+            <p>
 
-              {product.description}
+              { product.description}
+            </p>
             </Col>
-            
           </Row>
 
-
-
-
-
-
-<hr />
-{/* meio */}
-<Row>
+          <hr />
+         
+          <Row>
             <Col md={3} sm={8}>
-            <Rating
-            value={product.rating}
-            text={`${product.numReviews} ${
-              product.numReviews === 1 ? "avaliação" : "avaliações"
-            }`}
-          />
+              <Rating
+                value={product.rating}
+                text={`${product.numReviews} ${
+                  product.numReviews === 1 ? "avaliação" : "avaliações"
+                }`}
+              />
             </Col>
             <Col md={6}>
               <h3></h3>
 
               {/*  category > autor */}
               <h4></h4>
-
-              
             </Col>
             <Col md={3}>
               <Card>
@@ -167,19 +161,10 @@ const ProductScreen = () => {
             </Col>
           </Row>
 
-{/* meio */}
-
-
-
-
-
-
-
-
-
+          
 
           <hr />
-          
+
           <hr />
           <Row className="review">
             <Col md={6}>
@@ -195,7 +180,7 @@ const ProductScreen = () => {
                     <p>
                       {new Date(review.createdAt).toLocaleDateString("pt-BR")}
                     </p>
-                    <p>{review.comment}</p>
+                    <p id="parag-review-comment">{review.comment}</p>
                   </ListGroup.Item>
                 ))}
 

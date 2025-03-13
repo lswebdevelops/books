@@ -183,6 +183,15 @@ const updateUser = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc get emails of users
+// @route GET /api/users/emails
+// @access private/admin
+const getEmails = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  const emails = users.map((user) => user.email); // Collect only emails
+  res.status(200).json(emails);
+});
+
 export {
   authUser,
   registerUser,
@@ -193,4 +202,5 @@ export {
   getUsers,
   deleteUser,
   getUserById,
+  getEmails,
 };

@@ -34,6 +34,7 @@ import PoemEditScreen from "./screens/admin/PoemEditScreen"; // Import PoemEditS
 import PoemCreateScreen from "./screens/admin/PoemCreateScreen"; // Import PoemCreateScreen
 import PoemScreen from "./screens/PoemScreen";
 import BiographyScreen from "./screens/BiographyScreen";
+import UsersEmailListScreen from "./screens/admin/UsersEmailListScreen"; // Import UsersEmailListScreen
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -73,7 +74,10 @@ const router = createBrowserRouter(
         <Route path="/admin/product/:id/edit" element={<ProductEditScreen />} />
         <Route path="/admin/userlist/" element={<UserListScreen />} />
         <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
+        <Route path="/admin/email-list" element={<UsersEmailListScreen />} />
+
         {/* Poem admin routes */}
+
         <Route path="/admin/poemlist/" element={<PoemListScreen />} />{" "}
         {/* Poem List Screen */}
         <Route

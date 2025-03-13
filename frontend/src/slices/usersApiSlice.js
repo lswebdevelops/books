@@ -57,6 +57,13 @@ export const userApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['User'],
     }),
+    // New endpoint to get only email list
+    getEmails: builder.query({
+      query: () => ({
+        url: `${USERS_URL}/email-list`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
   }),
 });
 
@@ -69,5 +76,5 @@ export const {
   useDeleteUserMutation,
   useUpdateUserMutation,
   useGetUserDetailsQuery,
+  useGetEmailsQuery,
 } = userApiSlice;
-				  

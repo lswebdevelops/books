@@ -169,19 +169,19 @@ main > * {
 .div-image-biography{
  text-align: center;
   margin-right: 16px;
-  border: black 1px dashed;
+  
 }
 .image-biography {
  width: 250px;
   height: auto;
    border-radius: 8px;
-   border: black 1px dashed;
+  
 }
 
 .bio-container {
   display: flex;
   align-items: flex-start;
-  border: black 1px dashed;
+ 
 }
 .bio-content {
   display: flex;
@@ -190,7 +190,7 @@ main > * {
   /* align-items: flex-start; */
   max-width: 650px;;
   font-size: 1.1rem;
-  border: firebrick 1px dashed;
+  
   padding: 14px;
   ;
 }
@@ -257,4 +257,10 @@ main > * {
      height: auto;
     
    }
+}
+
+p{
+  white-space: pre-wrap;
+  
+  overflow-wrap: break-word;
 }
