@@ -69,6 +69,7 @@ table th {
 }
 .upper-div-product {
   margin-bottom: 25px;
+  min-height:40vw;
 }
 
 .poemLink {
@@ -165,3 +166,4 @@ main > * {
 .h1-recent-titles{
   text-align: center;
 }
+

@@ -80,31 +80,40 @@ const ProductScreen = () => {
             <Col md={3} sm={8}>
               <Image src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={6}>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <h3>{product.name}</h3>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  {/*  category > autor */}
-                  <h4>{product.category}</h4>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Rating
-                    value={product.rating}
-                    text={`${product.numReviews} ${
-                      product.numReviews === 1 ? "avaliação" : "avaliações"
-                    }`}
-                  />
-                </ListGroup.Item>
+            <Col md={9}>
+              <h3>{product.name}</h3>
 
-                {/* <ListGroup.Item>
-                  Preço: R$&nbsp;{product.price.toFixed(2).replace('.',',')} + frete
-                </ListGroup.Item> */}
-                <ListGroup.Item className="book-description">
-                   {product.description}
-                </ListGroup.Item>
-              </ListGroup>
+              {/*  category > autor */}
+              <h4>{product.category}</h4>
+
+              {product.description}
+            </Col>
+            
+          </Row>
+
+
+
+
+
+
+<hr />
+{/* meio */}
+<Row>
+            <Col md={3} sm={8}>
+            <Rating
+            value={product.rating}
+            text={`${product.numReviews} ${
+              product.numReviews === 1 ? "avaliação" : "avaliações"
+            }`}
+          />
+            </Col>
+            <Col md={6}>
+              <h3></h3>
+
+              {/*  category > autor */}
+              <h4></h4>
+
+              
             </Col>
             <Col md={3}>
               <Card>
@@ -113,7 +122,9 @@ const ProductScreen = () => {
                     <Row>
                       <Col>Preço:</Col>
                       <Col>
-                        <strong>R$&nbsp;{product.price.toFixed(2).replace('.',',')}</strong>
+                        <strong>
+                          R$&nbsp;{product.price.toFixed(2).replace(".", ",")}
+                        </strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -156,6 +167,19 @@ const ProductScreen = () => {
             </Col>
           </Row>
 
+{/* meio */}
+
+
+
+
+
+
+
+
+
+
+          <hr />
+          
           <hr />
           <Row className="review">
             <Col md={6}>
