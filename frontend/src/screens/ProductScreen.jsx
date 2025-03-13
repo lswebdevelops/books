@@ -98,11 +98,11 @@ const ProductScreen = () => {
                   />
                 </ListGroup.Item>
 
-                <ListGroup.Item>
+                {/* <ListGroup.Item>
                   Preço: R$&nbsp;{product.price.toFixed(2).replace('.',',')} + frete
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <strong>Resenha:</strong> {product.description}
+                </ListGroup.Item> */}
+                <ListGroup.Item className="book-description">
+                   {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
@@ -147,7 +147,7 @@ const ProductScreen = () => {
                         rel="noopener noreferrer"
                         style={{ color: "white", textDecoration: "none" }}
                       >
-                        Comprar no Mercado Livre
+                        Mercado Livre
                       </a>
                     </Button>
                   )}
@@ -155,6 +155,8 @@ const ProductScreen = () => {
               </Card>
             </Col>
           </Row>
+
+          <hr />
           <Row className="review">
             <Col md={6}>
               <h2>Avaliações</h2>

@@ -36,15 +36,19 @@ const Header = () => {
             <img src={logo} alt="logo of HW" className="logo-hw" />
           </Navbar.Brand>
 
-          <Navbar.Brand
-            href="/"
-          >
-            HARRY WIESE &nbsp;
+          <Navbar.Brand href="/" className="d-none d-md-block">
+            Home &nbsp;
           </Navbar.Brand>
 
           {/* Poemas link ao lado de Harry Wiese */}
           <Navbar.Brand as={Link} to="/poems">
-            Meus Poemas &nbsp;
+            Poemas &nbsp;
+          </Navbar.Brand>
+          {/* <Navbar.Brand as={Link} to="/books">
+            Livros &nbsp;
+          </Navbar.Brand> */}
+          <Navbar.Brand as={Link} to="/biography">
+            Sobre o Autor&nbsp;
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
@@ -78,13 +82,14 @@ const Header = () => {
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title={<FaUserTie size={20} />} id="adminmenu">
                   <NavDropdown.Item as={Link} to="/admin/productlist">
-                    Livros
+                    Editar Livros
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/admin/poemlist">
-                    Poemas
-                  </NavDropdown.Item> {/* Novo item Poemas */}
+                    Editar Poemas
+                  </NavDropdown.Item>{" "}
+                  {/* Novo item Poemas */}
                   <NavDropdown.Item as={Link} to="/admin/userlist">
-                    Usuários
+                    Editar Usuários
                   </NavDropdown.Item>
                 </NavDropdown>
               )}

@@ -18,7 +18,7 @@ const HomeScreen = () => {
   });
 
   return (
-    <>
+    <div className="homeScreen">
       {!keyword ? (
         // for showing the carousel "comment out || uncomment"
         <ProductCarousel /> ||
@@ -37,7 +37,7 @@ const HomeScreen = () => {
       ) : (
         <>
          
-          <h1>Títulos Recentes</h1>
+          <h1 className="h1-recent-titles">Títulos Recentes</h1>
           <Row>
             {data.products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
@@ -52,7 +52,7 @@ const HomeScreen = () => {
           />
         </>
       )}
-    </>
+    </div>
   );
 };
 

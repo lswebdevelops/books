@@ -1,7 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card } from "react-bootstrap";
 import Rating from "../components/Rating";
-import { useGetPoemsQuery, useGetPoemDetailsQuery } from "../slices/poemsApiSlice";
+import {
+  useGetPoemsQuery,
+  useGetPoemDetailsQuery,
+} from "../slices/poemsApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 
@@ -25,7 +28,7 @@ const PoemScreen = () => {
   if (!poemId) {
     return (
       <>
-        <h1>Poemas</h1>
+        <h1 className="poemsPageH1">Poemas</h1>
         {isLoadingPoems ? (
           <Loader />
         ) : errorPoems ? (
@@ -36,21 +39,16 @@ const PoemScreen = () => {
           <Row>
             {poems.map((poemItem) => (
               <Col key={poemItem._id} sm={12} md={6} lg={4} className="mb-3">
-                <Card>
-                  <Card.Body>
-                    <Card.Title>{poemItem.title}</Card.Title>
-                    <Card.Text>
-                      Autor: {poemItem.author}
-                      <br />
-                      <Rating
-                        value={poemItem.rating}
-                        text={`${poemItem.numReviews} ${
-                          poemItem.numReviews === 1 ? "avaliação" : "avaliações"
-                        }`}
-                      />
-                    </Card.Text>
-                    <Link to={`/poem/${poemItem._id}`}>Ver detalhes</Link>
-                  </Card.Body>
+                <Card className="poemContainer">
+                  <Link className="poemLink" to={`/poem/${poemItem._id}`}>
+                    <Card.Body>
+                      <Card.Title id="poemTitle">{poemItem.title}</Card.Title>
+                      <Card.Text id="poemAuthor">
+                        Autor: {poemItem.author}
+                        <br />
+                      </Card.Text>
+                    </Card.Body>
+                  </Link>
                 </Card>
               </Col>
             ))}
@@ -80,49 +78,13 @@ const PoemScreen = () => {
           <Col md={6}>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h3>{poem.title}</h3>
+                <h3 className="poemTitle">{poem.title}</h3>
               </ListGroup.Item>
+              <ListGroup.Item id="poem-content">{poem.content}</ListGroup.Item>
               <ListGroup.Item>
-                <h4>{poem.author}</h4>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Rating
-                  value={poem.rating}
-                  text={`${poem.numReviews} ${
-                    poem.numReviews === 1 ? "avaliação" : "avaliações"
-                  }`}
-                />
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <strong>Resenha:</strong> {poem.content}
+                <h4 className="poemAuthor">{poem.author}</h4>
               </ListGroup.Item>
             </ListGroup>
-          </Col>
-          <Col md={3}>
-            <Card>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Rating:</Col>
-                    <Col>
-                      <strong>{poem.rating}</strong>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Status:</Col>
-                    <Col>
-                      <strong>
-                        {poem.numReviews > 0
-                          ? "Tem avaliações"
-                          : "Nenhuma Avaliação"}
-                      </strong>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
           </Col>
         </Row>
       )}
