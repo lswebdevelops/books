@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card } from "react-bootstrap";
-import Rating from "../components/Rating";
+
 import {
   useGetPoemsQuery,
   useGetPoemDetailsQuery,

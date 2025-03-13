@@ -70,6 +70,13 @@ table th {
 .upper-div-product {
   margin-bottom: 25px;
   min-height: 40vw;
+ 
+}
+.upper-div-product img {
+  box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
+ border-radius: 8px;
+ margin-bottom: 23px;
+ ;
 }
 
 .poemLink {
@@ -118,6 +125,8 @@ main > * {
 .upper-div-poem {
   background-image: url("../../assets/library-book-book-read.jpg");
   background-size: cover;
+  border-radius: 8px;;
+  box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.5), 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
 #poem-content {
   white-space: pre-wrap; /* Preserves line breaks and spaces */
@@ -164,103 +173,78 @@ main > * {
   text-align: center;
 }
 
-
 /*  bio */
-.div-image-biography{
- text-align: center;
+.div-image-biography {
+  text-align: center;
   margin-right: 16px;
-  
 }
 .image-biography {
- width: 250px;
+  width: 250px;
   height: auto;
-   border-radius: 8px;
-  
+  border-radius: 8px;
+  box-shadow: 18px 12px 25px rgba(10, 10, 10, 0.5), 4px 14px 15px rgba(0, 0, 0, 0.05);
 }
 
 .bio-container {
   display: flex;
   align-items: flex-start;
- 
 }
 .bio-content {
   display: flex;
   text-align: center;
   justify-content: center;
   /* align-items: flex-start; */
-  max-width: 650px;;
+  max-width: 650px;
   font-size: 1.1rem;
-  
+
   padding: 14px;
-  ;
 }
 /* END SINGLE CATEGORY PAGE */
 /********** Large devices only **********/
 @media (min-width: 1200px) {
- 
-  .div-image-biography{
-    
-   }
-  
-   
-   
 }
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-  
   .image-biography {
-    width: 200px;    
-     height: auto;
+    width: 200px;
+    height: auto;
     border-radius: 8px;
-   }
+  }
 }
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-  
   .image-biography {
-    width: 200px;    
-     height: auto;
+    width: 200px;
+    height: auto;
     border-radius: 8px;
-   }
+  }
 }
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
- 
+  .div-image-biography {
+    width: 300px;
+    height: auto;
+  }
 
-    
-  .div-image-biography{
-    width: 300px;    
-     height: auto;
-    
-   }
-   .image-biography {
-   
-   }
-   
-   .bio-container {
+  .bio-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .div-container-bio h1{
-    text-align: center;;
-   
+  .div-container-bio h1 {
+    text-align: center;
   }
-  
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
- 
-  .div-image-biography{
-    width: 85%;    
-     height: auto;
-    
-   }
+  .div-image-biography {
+    width: 85%;
+    height: auto;
+  }
 }
 
-p{
+p {
   white-space: pre-wrap;
-  
   overflow-wrap: break-word;
 }
