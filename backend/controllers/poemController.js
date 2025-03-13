@@ -5,7 +5,8 @@ import Poem from "../models/poemModel.js";
 // @route GET /api/poems
 // @access Public
 const getPoems = asyncHandler(async (req, res) => {
-  const poems = await Poem.find({});
+  const poems = await Poem.find({})
+  .sort({createdAt: -1})// sort them by newest first
   res.json(poems);
 });
 
