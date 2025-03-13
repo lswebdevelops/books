@@ -8,6 +8,7 @@ import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import biographyRoutes from './routes/biographyRoutes.js';
 
 import poemRoutes from './routes/poemRoutes.js'; 
 
@@ -33,6 +34,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/poems", poemRoutes);
+app.use("/api/biography", biographyRoutes);
 
 
 app.get("/api/config/paypal", (req, res) =>
