@@ -28,7 +28,7 @@ const LoginScreen = () => {
     if (userInfo) {
       navigate(redirect);
     }
-  }, [userInfo, redirect , navigate]);
+  }, [userInfo, redirect, navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -78,7 +78,11 @@ const LoginScreen = () => {
 
       <Row className="py-3">
         <Col>
-          Novo por aqui? <Link to={redirect ? `/register?redirect=${redirect}`: '/register'}>Registrar-se</Link>
+          Novo por aqui?{" "}
+          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+            Registe-se
+          </Link>{" "}
+          para receber e-mails sobre os nossos últimos lançamentos de livros.
         </Col>
       </Row>
     </FormContainer>

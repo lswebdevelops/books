@@ -10,6 +10,9 @@ main {
   color: #f8e825;
 }
 
+.product-rating-h2 {
+  border-radius: 8px;
+}
 .rating-text {
   font-size: 0.8rem;
   font-weight: 600;
@@ -69,7 +72,6 @@ table th {
 }
 .upper-div-product {
   margin-bottom: 25px;
-  min-height: 40vw;
 }
 .upper-div-product img {
   box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
@@ -77,7 +79,7 @@ table th {
   margin-bottom: 23px;
 }
 
-.image-product-book{
+.image-product-book {
   position: relative;
   animation: moveFromLeft 1.2s ease-out; /* Adjust timing and easing as needed */
 }
@@ -102,12 +104,6 @@ table th {
   padding: 12px 12px 12px 0px;
 }
 
-#poem-content {
-  position: relative;
-  opacity: 0; /* Start fully transparent */
-  animation: fadeIn 1.2s ease-out forwards; /* Wait for 1.2s and then become visible */
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0; /* Fully transparent at the start */
@@ -116,8 +112,6 @@ table th {
     opacity: 1; /* Fully visible at the end */
   }
 }
-
-
 
 main {
   position: relative;
@@ -163,7 +157,17 @@ main > * {
   align-items: center; /* Centers the text vertically */
   justify-content: center; /* Centers the text horizontally (flexbox) */
   height: 100%;
+  word-wrap: break-word; /* Ensures long words break */
+  word-break: break-all; /* Forces breaking long words */
+  overflow-wrap: break-word; /* More reliable word breaking */
 }
+
+#poem-content {
+  position: relative;
+  opacity: 0; /* Start fully transparent */
+  animation: fadeIn 1.2s ease-out forwards; /* Wait for 1.2s and then become visible */
+}
+
 .poemTitle {
   font-size: 1.7rem;
   text-align: center;
@@ -172,7 +176,8 @@ main > * {
   font-size: 1rem;
   text-align: right;
 }
-.poemsPageH1 {
+.poemsPageH1,
+.booksPageH1 {
   text-align: center;
   font-size: 3rem;
   margin: 50px;
@@ -183,7 +188,9 @@ main > * {
   align-items: center; /* Centers the text vertically */
   justify-content: center; /* Centers the text horizontally (flexbox) */
 }
-
+.carousel {
+  margin-top: 52px;
+}
 .container-div-book-view {
   background-color: none;
 }
@@ -199,6 +206,7 @@ main > * {
 }
 .h1-recent-titles {
   text-align: center;
+  margin: 85px 85px 85px 85px;
 }
 
 /*  bio */
@@ -226,7 +234,9 @@ main > * {
     transform: translateX(0); /* Move to its original position */
   }
 }
-.bio-content,.upper-div-product p,.poemContainer{
+.bio-content,
+.upper-div-product p,
+.poemContainer {
   position: relative;
   opacity: 0; /* Start fully transparent */
   animation: fadeIn 3s ease-out forwards; /* Wait for 1.2s and then become visible */
@@ -240,7 +250,18 @@ main > * {
     opacity: 1; /* Fully visible at the end */
   }
 }
-.poemContainer{
+.poemContent-poems-page {
+  max-height: 120px; /* Limite de altura */
+  overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse a altura */
+  display: -webkit-box; /* Necessário para usar o line-clamp */
+  -webkit-line-clamp: 3; /* Limita o número de linhas visíveis */
+  -webkit-box-orient: vertical; /* Orientação do texto */
+  word-break: break-word; /* Quebra palavras longas */
+  white-space: normal; /* Permite quebras de linha normais */
+}
+
+.poemContainer,
+.books-keyframe {
   position: relative;
   opacity: 0; /* Start fully transparent */
   animation: fadeIn 3s ease-out forwards; /* Wait for 1.2s and then become visible */
@@ -254,7 +275,10 @@ main > * {
     opacity: 1; /* Fully visible at the end */
   }
 }
-
+.books-keyframe:hover,
+.poemContainer:hover {
+  scale: 1.02;
+}
 .bio-container {
   display: flex;
   align-items: flex-start;
@@ -335,3 +359,95 @@ p {
   margin-top: 15px;
 }
 
+/* upcoming  */
+
+.div-container-projects * {
+  /* text-decoration: none;; */
+  color: white;
+  border-radius: 8px;;
+  padding-bottom: 15px;
+}
+.upcoming-container {
+  color: white;
+}
+.div-projects {
+  background-color: #71786f;
+  padding: 0px 0px 10px 0px;
+}
+#div-image-upcoming {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 5px auto; /* 'auto' para centralizar horizontalmente */
+  max-width: 250px;
+  padding: 0px 0px 0px 20px;
+  height: auto;
+  /* border: black 2px dashed; */
+}
+.div-text-container-upcoming{
+  padding: 0px 35px 35px 35px;
+}
+.upcoming-para {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.image-upcoming {
+  height: auto;
+  width: 250px;
+  padding: 0px 0px 0px 0px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.image-upcoming:hover {
+  scale: 1.02;
+}
+
+.div-parag {
+  padding: 15px;
+}
+
+.project-container {
+  display: flex;
+  align-items: flex-start;
+}
+.h2-upcoming {
+  color: white;
+  padding: 10px;
+}
+.h4-upcoming {
+  font-size: 1.1rem;
+  margin-left: 15px;
+}
+
+.h3-upcoming {
+  font-size: 2rem;
+  margin-left: 15px;
+}
+
+.h1-upcoming {
+  text-align: center;
+  background-color: #131b11;
+  color: white;
+  padding: 15px;
+}
+.div-container-projects a {
+  padding: 15px;
+}
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .project-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+/* header */
+.nav-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

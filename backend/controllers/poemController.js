@@ -29,13 +29,40 @@ const getPoemById = asyncHandler(async (req, res) => {
 // @access Private (admin only)
 const createPoem = asyncHandler(async (req, res) => {
   const poem = new Poem({
-    title: "New Poem",       // Título do poema (valor padrão)
-    author: "Author Name",   // Autor do poema (valor padrão)
-    content: "Some content", // Conteúdo do poema (valor padrão)
-    reviews: [],             // Reviews iniciais (vazio)
-    rating: 0,               // Avaliação inicial
-    numReviews: 0,           // Número de avaliações
+    title: "Poema Amostra",       // Título do poema (valor padrão)
+    author: "Harry Wiese",     // Autor do poema (valor padrão)
+    content: `Tuas águas rolantes sobre o pétreo chão  
+  São vestígios da longínqua nação,  
+  Original.  
+  Não desanimes, não chores  
+  São ibiramares, irmão!  
+  
+  Não te constranjas, não te entristeças,  
+  Tuas lutas ibiramares,  
+  São cantares em construção.  
+  
+  O murmúrio dos ventos  
+  Da Mirador gigante  
+  E das montanhas circundantes.  
+  
+  Vem da distância que isola  
+  São ibiramares transmudados em cantares,  
+  Oração.  
+  
+  O meu povo  
+  Nas lutas progressistas,  
+  Não cultiva violências,  
+  Nem discordâncias,  
+  Constrói castelos singulares,  
+  Como se fossem cantares.  
+  
+  Ah, são ibiramares,  
+  Com perfeição!`,
+    reviews: [],              // Reviews iniciais (vazio)
+    rating: 0,                // Avaliação inicial
+    numReviews: 0             // Número de avaliações
   });
+  
 
   const createdPoem = await poem.save();
   res.status(201).json(createdPoem);
