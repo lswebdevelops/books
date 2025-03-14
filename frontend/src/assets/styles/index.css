@@ -11,7 +11,7 @@ main {
 }
 
 .product-rating-h2 {
-border-radius: 8px;;
+  border-radius: 8px;
 }
 .rating-text {
   font-size: 0.8rem;
@@ -72,7 +72,6 @@ table th {
 }
 .upper-div-product {
   margin-bottom: 25px;
-  
 }
 .upper-div-product img {
   box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
@@ -80,7 +79,7 @@ table th {
   margin-bottom: 23px;
 }
 
-.image-product-book{
+.image-product-book {
   position: relative;
   animation: moveFromLeft 1.2s ease-out; /* Adjust timing and easing as needed */
 }
@@ -105,8 +104,6 @@ table th {
   padding: 12px 12px 12px 0px;
 }
 
-
-
 @keyframes fadeIn {
   from {
     opacity: 0; /* Fully transparent at the start */
@@ -115,8 +112,6 @@ table th {
     opacity: 1; /* Fully visible at the end */
   }
 }
-
-
 
 main {
   position: relative;
@@ -173,7 +168,6 @@ main > * {
   animation: fadeIn 1.2s ease-out forwards; /* Wait for 1.2s and then become visible */
 }
 
-
 .poemTitle {
   font-size: 1.7rem;
   text-align: center;
@@ -182,7 +176,8 @@ main > * {
   font-size: 1rem;
   text-align: right;
 }
-.poemsPageH1, .booksPageH1 {
+.poemsPageH1,
+.booksPageH1 {
   text-align: center;
   font-size: 3rem;
   margin: 50px;
@@ -193,7 +188,9 @@ main > * {
   align-items: center; /* Centers the text vertically */
   justify-content: center; /* Centers the text horizontally (flexbox) */
 }
-
+.carousel {
+  margin-top: 52px;;
+}
 .container-div-book-view {
   background-color: none;
 }
@@ -209,6 +206,7 @@ main > * {
 }
 .h1-recent-titles {
   text-align: center;
+   margin: 85px 85px 85px 85px;
 }
 
 /*  bio */
@@ -236,7 +234,9 @@ main > * {
     transform: translateX(0); /* Move to its original position */
   }
 }
-.bio-content,.upper-div-product p,.poemContainer{
+.bio-content,
+.upper-div-product p,
+.poemContainer {
   position: relative;
   opacity: 0; /* Start fully transparent */
   animation: fadeIn 3s ease-out forwards; /* Wait for 1.2s and then become visible */
@@ -260,9 +260,8 @@ main > * {
   white-space: normal; /* Permite quebras de linha normais */
 }
 
-
-
-.poemContainer, .books-keyframe {
+.poemContainer,
+.books-keyframe {
   position: relative;
   opacity: 0; /* Start fully transparent */
   animation: fadeIn 3s ease-out forwards; /* Wait for 1.2s and then become visible */
@@ -276,7 +275,10 @@ main > * {
     opacity: 1; /* Fully visible at the end */
   }
 }
-
+.books-keyframe:hover,
+.poemContainer:hover {
+  scale: 1.02;
+}
 .bio-container {
   display: flex;
   align-items: flex-start;
@@ -357,3 +359,81 @@ p {
   margin-top: 15px;
 }
 
+/* upcoming  */
+
+.div-container-projects * {
+  /* text-decoration: none;; */
+  color: white;
+  padding-bottom: 45px;
+}
+.upcoming-container {
+  color: white;
+}
+.div-image-upcoming {
+  margin: 5px;
+  padding: 4px;
+  margin-right: 25px;
+}
+
+.image-upcoming {
+  height: 350px;
+  border-radius: 12px;
+  box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
+}
+.image-upcoming:hover {
+  scale: 1.02;
+}
+.div-projects {
+  background-color: #71786F;
+  padding:0px 0px 10px 0px;
+}
+
+.div-parag {
+  padding: 15px;
+}
+
+.project-container {
+  display: flex;
+  align-items: flex-start;
+}
+.h2-upcoming {
+  color: white;
+  padding: 10px;
+  ;
+}
+.h4-upcoming {
+  font-size: 1.1rem;
+  margin-left: 15px;
+}
+
+.h3-upcoming {
+  font-size: 2rem;
+  margin-left: 15px;
+}
+
+.h1-upcoming {
+  text-align: center;
+  background-color: #131b11;
+  color: white;;
+  padding: 15px;
+}
+.div-container-projects a {
+  padding: 15px;
+ 
+}
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .project-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+/* header */
+.nav-header {
+   font-size: 1.2rem;
+  font-weight: bold;
+ 
+}

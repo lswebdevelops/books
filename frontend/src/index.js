@@ -36,6 +36,7 @@ import PoemScreen from "./screens/PoemScreen";
 import BiographyScreen from "./screens/BiographyScreen";
 import UsersEmailListScreen from "./screens/admin/UsersEmailListScreen"; // Import UsersEmailListScreen
 import BookScreen from "./screens/BooksScreen";
+import UpcomingScreen from "./screens/UpcomingScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -55,6 +56,7 @@ const router = createBrowserRouter(
       <Route path="/poem/:id" element={<PoemScreen />} />
       <Route path="/biography" element={<BiographyScreen />} />
       <Route path="/books" element={<BookScreen />} />
+      <Route path="/upcoming" element={<UpcomingScreen />} />
 
       {/* user private route */}
       <Route path="" element={<PrivateRoute />}>
