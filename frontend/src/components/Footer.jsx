@@ -12,6 +12,7 @@ const Footer = () => {
             <p>HARRY WIESE &copy; {currentYear}</p>
             <div>
               <Link to="/">Home</Link> &nbsp;|&nbsp;
+              <Link to="/books">Livros</Link> &nbsp;|&nbsp;
               <Link to="/poems">Poemas</Link> &nbsp;|&nbsp;
               {/* <Link to="/books">Livros</Link> &nbsp;|&nbsp; */}
               <Link to="/biography">Sobre o Autor</Link>

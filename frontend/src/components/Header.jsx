@@ -44,11 +44,11 @@ const Header = () => {
           <Navbar.Brand as={Link} to="/poems">
             Poemas &nbsp;
           </Navbar.Brand>
-          {/* <Navbar.Brand as={Link} to="/books">
+          <Navbar.Brand as={Link} to="/books">
             Livros &nbsp;
-          </Navbar.Brand> */}
+          </Navbar.Brand>
           <Navbar.Brand as={Link} to="/biography">
-            Sobre o Autor&nbsp;
+            Sobre &nbsp;
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
