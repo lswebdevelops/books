@@ -70,15 +70,26 @@ table th {
 .upper-div-product {
   margin-bottom: 25px;
   min-height: 40vw;
- 
 }
 .upper-div-product img {
   box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
- border-radius: 8px;
- margin-bottom: 23px;
- ;
+  border-radius: 8px;
+  margin-bottom: 23px;
 }
 
+.image-product-book{
+  position: relative;
+  animation: moveFromLeft 1.2s ease-out; /* Adjust timing and easing as needed */
+}
+
+@keyframes moveFromLeft {
+  from {
+    transform: translateX(-100%); /* Start off-screen to the left */
+  }
+  to {
+    transform: translateX(0); /* Move to its original position */
+  }
+}
 .poemLink {
   text-decoration: none;
 }
@@ -90,6 +101,23 @@ table th {
   font-size: 1rem;
   padding: 12px 12px 12px 0px;
 }
+
+#poem-content {
+  position: relative;
+  opacity: 0; /* Start fully transparent */
+  animation: fadeIn 1.2s ease-out forwards; /* Wait for 1.2s and then become visible */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Fully transparent at the start */
+  }
+  to {
+    opacity: 1; /* Fully visible at the end */
+  }
+}
+
+
 
 main {
   position: relative;
@@ -125,7 +153,7 @@ main > * {
 .upper-div-poem {
   background-image: url("../../assets/library-book-book-read.jpg");
   background-size: cover;
-  border-radius: 8px;;
+  border-radius: 8px;
   box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.5), 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
 #poem-content {
@@ -182,7 +210,49 @@ main > * {
   width: 250px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 18px 12px 25px rgba(10, 10, 10, 0.5), 4px 14px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 18px 12px 25px rgba(10, 10, 10, 0.5),
+    4px 14px 15px rgba(0, 0, 0, 0.05);
+}
+.image-biography {
+  position: relative;
+  animation: moveFromLeft 1s ease-out; /* Adjust timing and easing as needed */
+}
+
+@keyframes moveFromLeft {
+  from {
+    transform: translateX(-10%); /* Start off-screen to the left */
+  }
+  to {
+    transform: translateX(0); /* Move to its original position */
+  }
+}
+.bio-content,.upper-div-product p,.poemContainer{
+  position: relative;
+  opacity: 0; /* Start fully transparent */
+  animation: fadeIn 3s ease-out forwards; /* Wait for 1.2s and then become visible */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Fully transparent at the start */
+  }
+  to {
+    opacity: 1; /* Fully visible at the end */
+  }
+}
+.poemContainer{
+  position: relative;
+  opacity: 0; /* Start fully transparent */
+  animation: fadeIn 3s ease-out forwards; /* Wait for 1.2s and then become visible */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Fully transparent at the start */
+  }
+  to {
+    opacity: 1; /* Fully visible at the end */
+  }
 }
 
 .bio-container {
@@ -248,3 +318,20 @@ p {
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
+
+/* Footer */
+.footer-harry {
+  background-color: black;
+  color: white;
+  width: 100%; /* Ensure it takes up the full width of the screen */
+  margin-bottom: 0; /* Remove the negative margin */
+  padding: 20px 0; /* Add padding for better spacing */
+}
+.footer-harry a {
+  color: white;
+}
+
+.poemsPageH1 {
+  margin-top: 15px;
+}
+

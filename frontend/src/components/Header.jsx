@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import {  Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { FaUser, FaUserTie } from "react-icons/fa";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -76,7 +76,7 @@ const Header = () => {
                 </>
               ) : (
                 <Nav.Link as={Link} to="/login">
-                  <FaUser /> Logar
+                  <FaUser /> Login
                 </Nav.Link>
               )}
               {userInfo && userInfo.isAdmin && (

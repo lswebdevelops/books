@@ -1,5 +1,5 @@
 {
-  "name": "Harry_Wiese",
+  "name": "harry_wiese",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,7 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder.js",
-    "data:destroy": "node backend/seeder.js -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "data:destroy": "node backend/seeder.js -d"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +22,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.2",
+    "motion": "^12.5.0",
     "multer": "^1.4.5-lts.1",
     "react-icons": "^5.5.0"
   },
