@@ -28,7 +28,10 @@ const PoemScreen = () => {
   if (!poemId) {
     return (
       <>
-        <h1 className="poemsPageH1">Poemas</h1>
+        <div className="testing-poems-div-pictures">
+          <h1 className="poemsPageH1">Poemas</h1>
+        </div>
+
         {isLoadingPoems ? (
           <Loader />
         ) : errorPoems ? (
@@ -36,7 +39,7 @@ const PoemScreen = () => {
             {errorPoems?.data?.message || errorPoems.error}
           </Message>
         ) : (
-          <Row>
+          <Row id="poems-containers">
             {poems.map((poemItem) => (
               <Col key={poemItem._id} sm={12} md={6} lg={4} className="mb-3">
                 <Card className="poemContainer">
