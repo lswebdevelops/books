@@ -189,7 +189,7 @@ main > * {
   justify-content: center; /* Centers the text horizontally (flexbox) */
 }
 .carousel {
-  margin-top: 52px;;
+  margin-top: 52px;
 }
 .container-div-book-view {
   background-color: none;
@@ -206,7 +206,7 @@ main > * {
 }
 .h1-recent-titles {
   text-align: center;
-   margin: 85px 85px 85px 85px;
+  margin: 85px 85px 85px 85px;
 }
 
 /*  bio */
@@ -364,28 +364,45 @@ p {
 .div-container-projects * {
   /* text-decoration: none;; */
   color: white;
-  padding-bottom: 45px;
+  border-radius: 8px;;
+  padding-bottom: 15px;
 }
 .upcoming-container {
   color: white;
 }
-.div-image-upcoming {
-  margin: 5px;
-  padding: 4px;
-  margin-right: 25px;
+.div-projects {
+  background-color: #71786f;
+  padding: 0px 0px 10px 0px;
+}
+#div-image-upcoming {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 5px auto; /* 'auto' para centralizar horizontalmente */
+  max-width: 250px;
+  padding: 0px 0px 0px 20px;
+  height: auto;
+  /* border: black 2px dashed; */
+}
+.div-text-container-upcoming{
+  padding: 0px 35px 35px 35px;
+}
+.upcoming-para {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .image-upcoming {
-  height: 350px;
+  height: auto;
+  width: 250px;
+  padding: 0px 0px 0px 0px;
   border-radius: 12px;
+  background-color: white;
   box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
+
 .image-upcoming:hover {
   scale: 1.02;
-}
-.div-projects {
-  background-color: #71786F;
-  padding:0px 0px 10px 0px;
 }
 
 .div-parag {
@@ -399,7 +416,6 @@ p {
 .h2-upcoming {
   color: white;
   padding: 10px;
-  ;
 }
 .h4-upcoming {
   font-size: 1.1rem;
@@ -414,12 +430,11 @@ p {
 .h1-upcoming {
   text-align: center;
   background-color: #131b11;
-  color: white;;
+  color: white;
   padding: 15px;
 }
 .div-container-projects a {
   padding: 15px;
- 
 }
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
@@ -433,7 +448,6 @@ p {
 
 /* header */
 .nav-header {
-   font-size: 1.2rem;
+  font-size: 1.2rem;
   font-weight: bold;
- 
 }
