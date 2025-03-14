@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   Row,
   Col,
@@ -18,15 +18,10 @@ import {
 } from "../slices/productsApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { addToCart } from "../slices/cartSlice";
 import { toast } from "react-toastify";
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
-  const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize navigate
-
-  const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
@@ -41,11 +36,6 @@ const ProductScreen = () => {
     useCreateReviewMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
-
-  const addToCartHandler = () => {
-    dispatch(addToCart({ ...product, qty }));
-    navigate("/cart"); // Use navigate to redirect
-  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -78,22 +68,24 @@ const ProductScreen = () => {
         <>
           <Row className="upper-div-product">
             <Col md={3} sm={8}>
-              <Image src={product.image} alt={product.name} className="image-product-book" fluid />
+              <Image
+                src={product.image}
+                alt={product.name}
+                className="image-product-book"
+                fluid
+              />
             </Col>
             <Col md={9}>
               <h3>{product.name}</h3>
 
               {/*  category > autor */}
               <h4>{product.category}</h4>
-            <p>
-
-              { product.description}
-            </p>
+              <p>{product.description}</p>
             </Col>
           </Row>
 
           <hr />
-         
+
           <Row>
             <Col md={3} sm={8}>
               <Rating
@@ -103,12 +95,7 @@ const ProductScreen = () => {
                 }`}
               />
             </Col>
-            <Col md={6}>
-              <h3></h3>
-
-              {/*  category > autor */}
-              <h4></h4>
-            </Col>
+            <Col md={6}></Col>
             <Col md={3}>
               <Card>
                 <ListGroup variant="flush">
@@ -161,14 +148,11 @@ const ProductScreen = () => {
             </Col>
           </Row>
 
-          
-
           <hr />
 
-          <hr />
           <Row className="review">
             <Col md={6}>
-              <h2>Avaliações</h2>
+              <h2 className="product-rating-h2">Avaliações</h2>
               {product.reviews.length === 0 && (
                 <Message>Nenhuma Avaliação</Message>
               )}
@@ -185,7 +169,7 @@ const ProductScreen = () => {
                 ))}
 
                 <ListGroup.Item>
-                  <h2>Deixe sua Avaliação</h2>
+                  <h2 className="product-rating-h2">Deixe sua Avaliação</h2>
 
                   {loadingProductReview && <Loader />}
 
