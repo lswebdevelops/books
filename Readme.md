@@ -4,6 +4,8 @@ This is a modern and responsive portfolio website for an author, designed to sho
 👉 Click here to visit the website
 
 https://harrywiese.onrender.com/
+
+
 📸 Screenshot
 ![Website](https://github.com/lswebdevelops/books/blob/master/uploads/screenshot_hw.png)
 
@@ -17,6 +19,7 @@ Data Source: GitHub
 ✅ User reviews for products and poems
 ✅ Clean and responsive design
 ✅ Fast and reliable performance
+
 
 📂 Setup
 Clone the repository
@@ -39,8 +42,11 @@ bash
 Copier
 Modifier
 npm start
+
+
 💡 How to Contribute
 Feel free to fork the repository and submit a pull request with your improvements!
+
 
 📄 License
 This project is licensed under the MIT License.
