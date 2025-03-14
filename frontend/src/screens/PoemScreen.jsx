@@ -28,7 +28,7 @@ const PoemScreen = () => {
   if (!poemId) {
     return (
       <>
-        <div className="testing-poems-div-pictures">
+        <div>
           <h1 className="poemsPageH1">Poemas</h1>
         </div>
 
@@ -49,6 +49,10 @@ const PoemScreen = () => {
                       <Card.Text id="poemAuthor">
                         Autor: {poemItem.author}
                         <br />
+                      </Card.Text>
+                      <hr />
+                      <Card.Text className="poemContent-poems-page">
+                        {poemItem.content}
                       </Card.Text>
                     </Card.Body>
                   </Link>
