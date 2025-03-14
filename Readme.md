@@ -23,24 +23,21 @@ Data Source: GitHub
 
 📂 Setup
 Clone the repository
-bash
-Copier
-Modifier
-git clone https://github.com/your-username/your-repo.git
+
+
+git clone https://github.com/lswebdevelops/books
+
 Navigate to the project directory
-bash
-Copier
-Modifier
+
 cd your-repo
+
 Install dependencies
-bash
-Copier
-Modifier
+
+
 npm install
+
 Start the development server
-bash
-Copier
-Modifier
+
 npm start
 
 
