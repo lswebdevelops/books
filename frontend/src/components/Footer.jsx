@@ -17,9 +17,9 @@ const Footer = () => {
               <Link to="/books">Livros</Link> &nbsp;|&nbsp;
               <Link to="/upcoming">Projetos</Link> &nbsp;|&nbsp;
               {/* <Link to="/books">Livros</Link> &nbsp;|&nbsp; */}
-              <Link to="/biography">Sobre o Autor</Link>&nbsp;|&nbsp;
+              <Link to="/biography">Autor</Link>&nbsp;|&nbsp;
               <a href="#top">
-                 Voltar ao Topo &nbsp;<FaArrowUp />
+                 <FaArrowUp />
               </a>
             </div>
           </Col>
