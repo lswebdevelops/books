@@ -35,7 +35,6 @@ const Header = () => {
     <Navbar.Brand href="/">
       <img src={logo} alt="logo of HW" className="logo-hw" />
     </Navbar.Brand>
-
    
 
     {/* Icons (Static on Left) */}

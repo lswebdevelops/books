@@ -358,7 +358,10 @@ p {
 .poemsPageH1 {
   margin-top: 15px;
 }
-
+.footer-top-container{
+  padding: 5px 5px 15px 15px;
+  font-size: 1.5rem;
+}
 /* upcoming  */
 
 .div-container-projects * {
@@ -451,3 +454,4 @@ p {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
