@@ -23,14 +23,12 @@ const BlogDetailsScreen = () => {
         </Message>
       ) : (
         <>
-          <Row className="d-flex flex-column flex-md-row text-center text-md-start container-blog-details">
-            {/* Title on top for small screens */}
-            <Col xs={12} className="d-md-none">
-              <h3 className="blog-title">{blog.title}</h3>
-            </Col>
+          {/* Title at the top for all screen sizes */}
 
-            {/* Image */}
-            <Col md={6}>
+          <Row className="d-flex flex-column align-items-center text-center container-blog-details">
+          <h3 className="blog-title text-center">{blog.title}</h3>
+            {/* Image always in the middle */}
+            <Col xs={12} md={8} lg={6} className="d-flex justify-content-center">
               <Image 
                 src={blog.image}
                 alt={blog.title}
@@ -38,10 +36,8 @@ const BlogDetailsScreen = () => {
               />
             </Col>
 
-            {/* Title, Author, Content */}
-            <Col md={6} className="d-flex flex-column justify-content-between blog-text-container">
-              {/* Hide title on small screens */}
-              <h3 className="blog-title d-none d-md-block">{blog.title}</h3>
+            {/* Content + Author below the image */}
+            <Col xs={12} md={10} lg={8} className="blog-text-container">
               <p className="blog-content">{blog.content}</p>
               <h4 className="blog-author">{blog.author}</h4>
             </Col>
