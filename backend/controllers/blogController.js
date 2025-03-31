@@ -32,7 +32,7 @@ const getBlogById = asyncHandler(async (req, res) => {
 
 const createBlog = asyncHandler(async (req, res) => {
   const blog = new Blog({
-    title: "Novo Blog",
+    title: "Novo Artigo",
     image: "/images/newblogpost.jpg",
     author: "Harry Wiese",
     content: "Sample é o destino perfeito para mentes curiosas que buscam inspiração, conhecimento e entretenimento. Com artigos envolventes sobre tecnologia, cultura, ciência e estilo de vida, nosso blog traz análises aprofundadas, dicas práticas e reflexões instigantes sobre o mundo moderno. Seja para descobrir novas tendências, explorar ideias inovadoras ou simplesmente encontrar uma boa leitura, o Blog Sample é o seu ponto de encontro com o conhecimento.",

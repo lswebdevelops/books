@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { FaUser, FaUserTie, FaHome, FaBook, FaProjectDiagram, FaFeatherAlt, FaUserAlt } from "react-icons/fa";
+import { FaUser, FaUserTie, FaHome, FaBook, FaFeatherAlt, FaUserAlt,FaNewspaper } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { useLogoutMutation } from "../slices/usersApiSlice";
@@ -51,16 +51,18 @@ const Header = () => {
     <FaBook size={20} className="d-lg-none" />
     <span className="ms-2 d-none d-lg-inline">Livros</span>
   </Nav.Link>
-  <Nav.Link as={Link} to="/upcoming" className="d-flex align-items-center me-3">
+
+  {/* <Nav.Link as={Link} to="/upcoming" className="d-flex align-items-center me-3">
     <FaProjectDiagram size={20} className="d-lg-none" />
     <span className="ms-2 d-none d-lg-inline">Projetos</span>
-  </Nav.Link>
+  </Nav.Link> */}
+  
   <Nav.Link as={Link} to="/blogs" className="d-flex align-items-center">
-    <FaUserAlt size={20} className="d-lg-none" />
+    <FaNewspaper size={27} className="d-lg-none" />
     <span className="ms-2 d-none d-lg-inline">Blog</span>
   </Nav.Link>
   <Nav.Link as={Link} to="/biography" className="d-flex align-items-center">
-    <FaUserAlt size={20} className="d-lg-none" />
+    <FaUserAlt size={20} className="d-lg-none  icon-bio-header" />
     <span className="ms-2 d-none d-lg-inline">Autor</span>
   </Nav.Link>
   
@@ -88,7 +90,8 @@ const Header = () => {
           </NavDropdown>
         ) : (
           <Nav.Link as={Link} to="/login" className="d-flex align-items-center">
-            <FaUser />
+           
+           <FaUser />          
             <span className="ms-2 d-none d-lg-inline">Login</span>
           </Nav.Link>
         )}
