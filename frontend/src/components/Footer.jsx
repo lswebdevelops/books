@@ -63,6 +63,17 @@ const Footer = () => {
                 <FaBook size={20} className="d-lg-none" />
                 <span className="ms-2 d-none d-lg-inline">Livros</span>
               </Link>
+
+
+              <Link
+                as={Link}
+                to="/blogs"
+                className="d-flex align-items-center"
+              >
+                <FaUserAlt size={20} className="d-lg-none" />
+                <span className="ms-2 d-none d-lg-inline">Blog</span>
+              </Link>
+              
               {/* <Link to="/biography">Autor</Link>&nbsp;|&nbsp; */}
               <Link
                 as={Link}
@@ -72,8 +83,9 @@ const Footer = () => {
                 <FaUserAlt size={20} className="d-lg-none" />
                 <span className="ms-2 d-none d-lg-inline">Autor</span>
               </Link>
+            
 
-              <div className="footer-top-container" >
+              <div className="footer-top-container">
                 <a href="#top">
                   <FaArrowUp />
                 </a>

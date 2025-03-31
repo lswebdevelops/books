@@ -46,12 +46,12 @@ const createProduct = asyncHandler(async (req, res) => {
     name: "Título da obra",
     price: 0,
     user: req.user._id,
-    image: "/images/sample.jpg",
-    brand: "Editora",
+    image: "/images/samplebook2.png",
+    brand: "Editora X",
     category: "Harry Wiese",
     countInStock: 0,
     numReviews: 0,
-    description: "Descrição",
+    description: "Thriller psicológico envolvente que mergulha nas profundezas da mente humana e das escolhas morais em meio ao caos.Quando o renomado neurocientista Dr. Alan Reeves descobre um experimento secreto capaz de reprogramar a memória, ele se vê dividido entre a ética e a ambição. Mas sua pesquisa atrai a atenção de uma organização misteriosa que deseja usar sua invenção para fins obscuros. À medida que Alan luta para proteger seu trabalho, ele começa a questionar sua própria realidade. Memórias antes sólidas se tornam distorcidas, pessoas próximas a ele agem de forma estranha, e a linha entre verdade e ilusão começa a se desfazer. Com reviravoltas surpreendentes e um ritmo eletrizante, Book Sample desafia o leitor a questionar: e se suas lembranças não fossem realmente suas?",
   });
 
   const createdProduct = await product.save();

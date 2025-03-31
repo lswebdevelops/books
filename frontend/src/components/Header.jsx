@@ -55,10 +55,15 @@ const Header = () => {
     <FaProjectDiagram size={20} className="d-lg-none" />
     <span className="ms-2 d-none d-lg-inline">Projetos</span>
   </Nav.Link>
+  <Nav.Link as={Link} to="/blogs" className="d-flex align-items-center">
+    <FaUserAlt size={20} className="d-lg-none" />
+    <span className="ms-2 d-none d-lg-inline">Blog</span>
+  </Nav.Link>
   <Nav.Link as={Link} to="/biography" className="d-flex align-items-center">
     <FaUserAlt size={20} className="d-lg-none" />
     <span className="ms-2 d-none d-lg-inline">Autor</span>
   </Nav.Link>
+  
 </Nav>
 
 
@@ -96,6 +101,9 @@ const Header = () => {
             </NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/admin/poemlist">
               Editar Poemas
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/admin/bloglist">
+              Editar Blogs
             </NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/admin/userlist">
               Editar Usuários

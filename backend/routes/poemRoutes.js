@@ -7,7 +7,7 @@ import {
   createPoem,
   updatePoem,
   deletePoem,
-  createPoemReview,
+ 
   getTopPoems,
 } from "../controllers/poemController.js";
 
@@ -16,7 +16,7 @@ import checkObjectId from "../middleware/checkObjectId.js";
 
 // Routes for poems
 router.route("/").get(getPoems).post(protect, admin, createPoem);
-router.route("/:id/reviews").post(protect, checkObjectId, createPoemReview);
+
 
 // Get top-rated poems
 router.get("/top", getTopPoems);

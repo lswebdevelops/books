@@ -14,7 +14,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
 import { Provider } from "react-redux";
 import store from "./store";
 import "./assets/styles/index.css";
@@ -33,6 +33,14 @@ import PoemListScreen from "./screens/admin/PoemListScreen"; // Import PoemListS
 import PoemEditScreen from "./screens/admin/PoemEditScreen"; // Import PoemEditScreen
 import PoemCreateScreen from "./screens/admin/PoemCreateScreen"; // Import PoemCreateScreen
 import PoemScreen from "./screens/PoemScreen";
+
+import BlogListScreen from "./screens/admin/BlogListScreen"; 
+import BlogEditScreen from "./screens/admin/BlogEditScreen"; 
+import BlogScreen from "./screens/BlogScreen";
+import BlogDetailsScreen from "./screens/BlogDetailsScreen"
+import BlogCreateScreen from "./screens/admin/BlogCreateScreen";
+
+
 import BiographyScreen from "./screens/BiographyScreen";
 import UsersEmailListScreen from "./screens/admin/UsersEmailListScreen"; // Import UsersEmailListScreen
 import BookScreen from "./screens/BooksScreen";
@@ -56,6 +64,9 @@ const router = createBrowserRouter(
       <Route path="/poem/:id" element={<PoemScreen />} />
       <Route path="/biography" element={<BiographyScreen />} />
       <Route path="/books" element={<BookScreen />} />
+
+      <Route path="/blogs" element={<BlogScreen />} />
+      <Route path="/blog/:id" element={<BlogDetailsScreen  />} />
       <Route path="/upcoming" element={<UpcomingScreen />} />
 
       {/* user private route */}
@@ -81,18 +92,15 @@ const router = createBrowserRouter(
         <Route path="/admin/email-list" element={<UsersEmailListScreen />} />
 
         {/* Poem admin routes */}
-
-        <Route path="/admin/poemlist/" element={<PoemListScreen />} />{" "}
-        {/* Poem List Screen */}
-        <Route
-          path="/admin/poems/:pageNumber/"
-          element={<PoemListScreen />}
-        />{" "}
-        {/* Paginated Poem List */}
-        <Route path="/admin/poem/create" element={<PoemCreateScreen />} />{" "}
-        {/* Create Poem Screen */}
+        <Route path="/admin/poemlist/" element={<PoemListScreen />} />{" "}           
+        <Route path="/admin/poem/create" element={<PoemCreateScreen />} />{" "}       
         <Route path="/admin/poem/:id/edit" element={<PoemEditScreen />} />{" "}
-        {/* Edit Poem Screen */}
+       
+        {/* Blog admin routes */}
+        <Route path="/admin/bloglist/" element={<BlogListScreen />} />{" "}           
+        <Route path="/admin/blog/create" element={<BlogCreateScreen />} />{" "}       
+        <Route path="/admin/blog/:id/edit" element={<BlogEditScreen />} />{" "}
+       
       </Route>
     </Route>
   )
@@ -102,9 +110,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PayPalScriptProvider deferLoading={true}>
-        <RouterProvider router={router} />
-      </PayPalScriptProvider>
-    </Provider>
+              <RouterProvider router={router} />
+          </Provider>
   </React.StrictMode>
 );
