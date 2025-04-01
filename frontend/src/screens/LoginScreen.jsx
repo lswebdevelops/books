@@ -79,9 +79,9 @@ const LoginScreen = () => {
         <Col>
           Novo por aqui?{" "}
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            Registe-se
+            Registre-se
           </Link>{" "}
-          para receber e-mails sobre os nossos últimos lançamentos de livros.
+          para receber e-mails sobre os nossos últimos lançamentos.
         </Col>
       </Row>
     </FormContainer>
