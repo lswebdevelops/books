@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import HomeScreen from "./screens/HomeScreen";
-import BookScreen from "./screens/BookScreen";
+import HomeBookScreen from "./screens/HomeBookScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
 import CartScreen from "./screens/CartScreen";
@@ -56,7 +56,7 @@ const router = createBrowserRouter(
         path="/search/:keyword/page/:pageNumber"
         element={<HomeScreen />}
       />
-      <Route path="/book/:id" element={<BookScreen />} />
+      <Route path="/book/:id" element={<HomeBookScreen />} />
       <Route path="/cart/" element={<CartScreen />} />
       <Route path="/login/" element={<LoginScreen />} />
       <Route path="/register/" element={<RegisterScreen />} />
