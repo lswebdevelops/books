@@ -1,13 +1,38 @@
-import { useParams } from "react-router-dom";
-import { useGetBlogDetailsQuery } from "../slices/blogsApiSlice";
+import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import {
+  useGetBlogDetailsQuery,
+  useAddCommentToBlogMutation,
+} from "../slices/blogsApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { Link } from "react-router-dom";
-import { Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image, Form, Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const BlogDetailsScreen = () => {
   const { id } = useParams();
-  const { data: blog, isLoading, error } = useGetBlogDetailsQuery(id);
+  const { data: blog, isLoading, error, refetch } = useGetBlogDetailsQuery(id);
+  console.log(blog); // Verifique se "comments" está presente
+
+  const [comment, setComment] = useState("");
+  const [addComment] = useAddCommentToBlogMutation();
+
+  const submitCommentHandler = async (e) => {
+    e.preventDefault();
+    if (!comment.trim()) {
+      toast.error("O comentário não pode estar vazio!");
+      return;
+    }
+
+    try {
+      await addComment({ blogId: id, content: comment }).unwrap();
+      toast.success("Comentário adicionado!");
+      setComment(""); // Limpar campo após envio
+      refetch(); // Atualiza os comentários
+    } catch (error) {
+      toast.error(error?.data?.message || "Erro ao adicionar comentário");
+    }
+  };
 
   return (
     <>
@@ -23,20 +48,22 @@ const BlogDetailsScreen = () => {
         </Message>
       ) : (
         <>
-          {/* Title at the top for all screen sizes */}
-
           <Row className="d-flex flex-column align-items-center text-center container-blog-details">
-          <h3 className="blog-title text-center">{blog.title}</h3>
-            {/* Image always in the middle */}
-            <Col xs={12} md={8} lg={6} className="d-flex justify-content-center">
-              <Image 
+            <h3 className="blog-title text-center">{blog.title}</h3>
+
+            <Col
+              xs={12}
+              md={8}
+              lg={6}
+              className="d-flex justify-content-center"
+            >
+              <Image
                 src={blog.image}
                 alt={blog.title}
                 className="image-blog img-fluid rounded"
               />
             </Col>
 
-            {/* Content + Author below the image */}
             <Col xs={12} md={10} lg={8} className="blog-text-container">
               <p className="blog-content">{blog.content}</p>
               <h4 className="blog-author">{blog.author}</h4>
@@ -44,6 +71,54 @@ const BlogDetailsScreen = () => {
           </Row>
 
           <hr />
+
+          {/* Seção de Comentários */}
+          <Row className="comments-section">
+            <Col md={8}>
+              <h4 className="comments-title">Comentários</h4>
+              {blog.comments && blog.comments.length > 0 ? (
+                <ul className="comments-list">
+                  {blog.comments.map((comment, index) => (
+                    <li key={index} className="comment-item">
+                      <p className="comment-author">
+                        {new Date(comment.createdAt).toLocaleDateString("pt-BR")}
+                      </p>
+                      <p className="comment-content">{comment.content}</p>
+                      <small className="comment-author">
+                        Comentado por: {comment.user.name.split(" ")[0]}
+                      </small>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <Message variant="secondary" className="no-comments">
+                  Nenhum comentário ainda.
+                </Message>
+              )}
+            </Col>
+          </Row>
+
+          {/* Formulário para adicionar comentário */}
+          <Row className="comment-form">
+            <Col md={8}>
+              <h4>Deixe um comentário</h4>
+              <Form onSubmit={submitCommentHandler}>
+                <Form.Group controlId="comment">
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    placeholder="Escreva seu comentário..."
+                    className="comment-textarea"
+                  />
+                </Form.Group>
+                <Button type="submit" variant="primary" className="comment-submit-btn">
+                  Enviar
+                </Button>
+              </Form>
+            </Col>
+          </Row>
         </>
       )}
     </>

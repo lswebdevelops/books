@@ -1,4 +1,7 @@
 import express from "express";
+import { addCommentToBlog } from "../controllers/blogController.js";
+
+
 const router = express.Router();
 import {
   getBlogs,
@@ -18,5 +21,7 @@ router
   .get(checkObjectId, getBlogById)
   .put(protect, admin, checkObjectId, updateBlog)
   .delete(protect, admin, checkObjectId, deleteBlog);
+  
+router.route("/:id/comments").post(protect, addCommentToBlog);
 
 export default router;
