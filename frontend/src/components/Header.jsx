@@ -99,7 +99,7 @@ const Header = () => {
         {/* Admin Dropdown */}
         {userInfo?.isAdmin && (
           <NavDropdown title={<FaUserTie size={20} />} id="adminmenu">
-            <NavDropdown.Item as={Link} to="/admin/productlist">
+            <NavDropdown.Item as={Link} to="/admin/booklist">
               Editar Livros
             </NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/admin/poemlist">

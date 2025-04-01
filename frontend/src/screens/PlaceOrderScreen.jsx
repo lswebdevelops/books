@@ -85,7 +85,7 @@ function PlaceOrderScreen() {
                           />
                         </Col>
                         <Col>
-                          <Link to={`/products/${item.product}`}>
+                          <Link to={`/books/${item.book}`}>
                             {item.name}
                           </Link>
                         </Col>

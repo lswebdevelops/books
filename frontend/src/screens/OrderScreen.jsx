@@ -158,7 +158,7 @@ const OrderScreen = () => {
                       <Image src={item.image} alt={item.name} fluid rounded />
                     </Col>
                     <Col>
-                      <Link to={`/product/${item.product}`}>{item.name}</Link>
+                      <Link to={`/book/${item.book}`}>{item.name}</Link>
                       <Col md={4}>
                         {item.qty} x ${item.price} =$
                         {(item.qty * (item.price * 100)) / 100}

@@ -16,7 +16,7 @@ Hosting: Render
 Data Source: GitHub
 🎯 Features
 ✅ Showcase of projects and poems
-✅ User reviews for products and poems
+✅ User reviews for books and poems
 ✅ Clean and responsive design
 ✅ Fast and reliable performance
 

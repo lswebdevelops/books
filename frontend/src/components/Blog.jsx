@@ -14,7 +14,8 @@ const Blog = ({ blog }) => {
 
   return (
     <Card className="my-6 p-6" style={{ borderRadius: 0 }}>
-      <Row noGutters>
+      {/* Remove noGutters to see if it resolves the warning */}
+      <Row>
         <Col md={6}>
           <Link to={`/blog/${blog._id}`}>
             <Card.Img
@@ -35,7 +36,9 @@ const Blog = ({ blog }) => {
                     locale: ptBR,
                   })}
                 </p>
-                <p className="blog-title-blog-genetal mb-1 font-weight-bold">{blog.title}</p>
+                <p className="blog-title-blog-genetal mb-1 font-weight-bold">
+                  {blog.title}
+                </p>
                 <p className="blog-content-blog-genetal text-muted">
                   {truncateContent(blog.content, 15)}
                 </p>

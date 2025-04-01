@@ -6,27 +6,27 @@ import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import Paginate from "../../components/Paginate";
 import {
-  useGetProductsQuery,
-  useCreateProductMutation,
-  useDeleteProductMutation,
-} from "../../slices/productsApiSlice";
+  useGetBooksQuery,
+  useCreateBookMutation,
+  useDeleteBookMutation,
+} from "../../slices/booksApiSlice";
 import { toast } from "react-toastify";
 
-const ProductListScreen = () => {
+const BookListScreen = () => {
   const {pageNumber } = useParams();
-  const { data, isLoading, error, refetch } = useGetProductsQuery( { pageNumber});
+  const { data, isLoading, error, refetch } = useGetBooksQuery( { pageNumber});
 
-  const [createProduct, { isLoading: loadingCreate }] =
-    useCreateProductMutation();
+  const [createBook, { isLoading: loadingCreate }] =
+    useCreateBookMutation();
 
-  const [deleteProduct, { isLoading: loadingDelete }] =
-    useDeleteProductMutation();
+  const [deleteBook, { isLoading: loadingDelete }] =
+    useDeleteBookMutation();
 
   const deleteHandler = async (id) => {
     if (window.confirm("Are you sure?")) {
       try {
-        await deleteProduct(id);
-        toast.success('Product deleted')
+        await deleteBook(id);
+        toast.success('Book deleted')
         refetch();
       } catch (err) {
         toast.error(err?.data?.message || err.error);
@@ -34,12 +34,12 @@ const ProductListScreen = () => {
     }
   };
 
-  const createProductHandler = async () => {
+  const createBookHandler = async () => {
     if (!window.confirm("Tem certeza de que deseja criar um novo livro?")) {
       return;
     }
     try {
-      await createProduct();
+      await createBook();
       refetch();
     } catch (err) {
       toast.error(err?.data?.message || err.error);
@@ -57,7 +57,7 @@ const ProductListScreen = () => {
           <h1>Livros</h1>
         </Col>
         <Col className="text-end">
-          <Button onClick={createProductHandler} className="btn-sm m-3">
+          <Button onClick={createBookHandler} className="btn-sm m-3">
             <FaEdit />
             &nbsp; Criar Livro
           </Button>
@@ -84,15 +84,15 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {data.products.map((product) => (
-                <tr key={product._id}>
-                  <td>{product._id}</td>
-                  <td>{product.name}</td>
-                  <td>{`R$ ${product.price.toFixed(2).replace('.', ',')}`}</td>
-                  <td>{product.category}</td>
-                  <td>{product.brand}</td>
+              {data.books.map((book) => (
+                <tr key={book._id}>
+                  <td>{book._id}</td>
+                  <td>{book.name}</td>
+                  <td>{`R$ ${book.price.toFixed(2).replace('.', ',')}`}</td>
+                  <td>{book.category}</td>
+                  <td>{book.brand}</td>
                   <td>
-                    <Link to={`/admin/product/${product._id}/edit`}>
+                    <Link to={`/admin/book/${book._id}/edit`}>
                       <Button variant="light" className="btn-sm mx-2">
                         <FaEdit />
                       </Button>
@@ -100,7 +100,7 @@ const ProductListScreen = () => {
                     <Button
                       variant="danger"
                       className="btn-sm"
-                      onClick={() => deleteHandler(product._id)}
+                      onClick={() => deleteHandler(book._id)}
                     >
                       <FaTrash style={{ color: "white" }} />
                     </Button>
@@ -115,4 +115,4 @@ const ProductListScreen = () => {
   );
 };
 
-export default ProductListScreen;
+export default BookListScreen;

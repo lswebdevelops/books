@@ -10,7 +10,7 @@ main {
   color: #f8e825;
 }
 
-.product-rating-h2 {
+.book-rating-h2 {
   border-radius: 8px;
 }
 .rating-text {
@@ -19,7 +19,7 @@ main {
   padding-left: 0.5rem;
 }
 
-.product-title {
+.book-title {
   height: 2.5em; /* Set a fixed height */
   overflow: hidden; /* Hide overflow content */
   text-overflow: ellipsis; /* Add ellipsis for long text */
@@ -70,16 +70,16 @@ table th {
 .available-books {
   padding: 10px 10px 10px 20px;
 }
-.upper-div-product {
+.upper-div-book {
   margin-bottom: 25px;
 }
-.upper-div-product img {
+.upper-div-book img {
   box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   margin-bottom: 23px;
 }
 
-.image-product-book {
+.image-book-book {
   position: relative;
   animation: moveFromLeft 1.2s ease-out; /* Adjust timing and easing as needed */
 }
@@ -237,7 +237,7 @@ main > * {
   }
 }
 .bio-content,
-.upper-div-product p,
+.upper-div-book p,
 .poemContainer {
   position: relative;
   opacity: 0; /* Start fully transparent */

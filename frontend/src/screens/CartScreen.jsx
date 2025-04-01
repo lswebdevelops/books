@@ -22,8 +22,8 @@ const CartScreen = () => {
 
   // NOTE: no need for an async function here as we are not awaiting the
   // resolution of a Promise
-  const addToCartHandler = (product, qty) => {
-    dispatch(addToCart({ ...product, qty }));
+  const addToCartHandler = (book, qty) => {
+    dispatch(addToCart({ ...book, qty }));
   };
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
@@ -49,7 +49,7 @@ const CartScreen = () => {
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
-                    <Link to={`/product/${item._id}`}>{item.name}</Link>
+                    <Link to={`/book/${item._id}`}>{item.name}</Link>
                   </Col>
                   <Col md={2}>R${item.price}</Col>
                   <Col md={2}>

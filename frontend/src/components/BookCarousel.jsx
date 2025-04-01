@@ -1,27 +1,27 @@
 import { Link } from "react-router-dom";
 import { Carousel, Image } from "react-bootstrap";
 import Message from "./Message";
-import { useGetTopProductsQuery } from "../slices/productsApiSlice";
+import { useGetTopBooksQuery } from "../slices/booksApiSlice";
 
-const ProductCarousel = () => {
-  const { data: products, isLoading, error } = useGetTopProductsQuery();
+const BookCarousel = () => {
+  const { data: books, isLoading, error } = useGetTopBooksQuery();
 
   return isLoading ? null : error ? (
     <Message variant="danger">{error?.data?.message || error.error}</Message>
   ) : (
     <Carousel pause="hover" className="bg-light mb-4 caroulsel-book-right-side">
-      {products.map((product) => (
-        <Carousel.Item key={product._id}>
+      {books.map((book) => (
+        <Carousel.Item key={book._id}>
           <Link         
           
-          to={`/product/${product._id}`}>
+          to={`/book/${book._id}`}>
             <div 
               style={{
                 height: "400px",
                 width: "100%",
                 position: "relative",
                 backgroundColor: "#f8f9fa",
-                backgroundImage: `url(${product.image})`,
+                backgroundImage: `url(${book.image})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
               }}
@@ -41,8 +41,8 @@ const ProductCarousel = () => {
               ></div>
               <Image
                
-                src={product.image}
-                alt={product.name}
+                src={book.image}
+                alt={book.name}
                 fluid
                 style={{
                   height: "100%",
@@ -56,8 +56,8 @@ const ProductCarousel = () => {
 
             <Carousel.Caption className="carousel-caption carousel-letters-container">
               <h2 className="text-white text-right carousel-letters">
-                {product.name}
-                {/* (R$&nbsp;{product.price}) */}
+                {book.name}
+                {/* (R$&nbsp;{book.price}) */}
                 <br />
               </h2>
             </Carousel.Caption>
@@ -68,4 +68,4 @@ const ProductCarousel = () => {
   );
 };
 
-export default ProductCarousel;
+export default BookCarousel;

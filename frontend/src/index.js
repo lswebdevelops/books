@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import HomeScreen from "./screens/HomeScreen";
-import ProductScreen from "./screens/ProductScreen";
+import BookScreen from "./screens/BookScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
 import CartScreen from "./screens/CartScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingScreen from "./screens/ShippingScreen";
+import BooksScreen from "./screens/BooksScreen";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -25,8 +26,8 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import OrderListScreen from "./screens/admin/OrderListScreen";
-import ProductListScreen from "./screens/admin/ProductListScreen";
-import ProductEditScreen from "./screens/admin/ProductEditScreen";
+import BookListScreen from "./screens/admin/BookListScreen";
+import BookEditScreen from "./screens/admin/BookEditScreen";
 import UserListScreen from "./screens/admin/UserListScreen";
 import UserEditScreen from "./screens/admin/UserEditScreen";
 import PoemListScreen from "./screens/admin/PoemListScreen"; // Import PoemListScreen
@@ -43,7 +44,6 @@ import BlogCreateScreen from "./screens/admin/BlogCreateScreen";
 
 import BiographyScreen from "./screens/BiographyScreen";
 import UsersEmailListScreen from "./screens/admin/UsersEmailListScreen"; // Import UsersEmailListScreen
-import BookScreen from "./screens/BooksScreen";
 import UpcomingScreen from "./screens/UpcomingScreen";
 
 const router = createBrowserRouter(
@@ -56,14 +56,14 @@ const router = createBrowserRouter(
         path="/search/:keyword/page/:pageNumber"
         element={<HomeScreen />}
       />
-      <Route path="/product/:id" element={<ProductScreen />} />
+      <Route path="/book/:id" element={<BookScreen />} />
       <Route path="/cart/" element={<CartScreen />} />
       <Route path="/login/" element={<LoginScreen />} />
       <Route path="/register/" element={<RegisterScreen />} />
       <Route path="/poems" element={<PoemScreen />} />
       <Route path="/poem/:id" element={<PoemScreen />} />
       <Route path="/biography" element={<BiographyScreen />} />
-      <Route path="/books" element={<BookScreen />} />
+      <Route path="/books" element={<BooksScreen />} />
 
       <Route path="/blogs" element={<BlogScreen />} />
       <Route path="/blog/:id" element={<BlogDetailsScreen  />} />
@@ -81,12 +81,12 @@ const router = createBrowserRouter(
       {/* admin routes */}
       <Route path="" element={<AdminRoute />}>
         <Route path="/admin/orderlist/" element={<OrderListScreen />} />
-        <Route path="/admin/productlist/" element={<ProductListScreen />} />
+        <Route path="/admin/booklist/" element={<BookListScreen />} />
         <Route
-          path="/admin/productlist/:pageNumber/"
-          element={<ProductListScreen />}
+          path="/admin/booklist/:pageNumber/"
+          element={<BookListScreen />}
         />
-        <Route path="/admin/product/:id/edit" element={<ProductEditScreen />} />
+        <Route path="/admin/book/:id/edit" element={<BookEditScreen />} />
         <Route path="/admin/userlist/" element={<UserListScreen />} />
         <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
         <Route path="/admin/email-list" element={<UsersEmailListScreen />} />

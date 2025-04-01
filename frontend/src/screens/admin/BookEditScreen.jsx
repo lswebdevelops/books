@@ -6,13 +6,13 @@ import Loader from "../../components/Loader";
 import FormContainer from "../../components/FormContainer";
 import { toast } from "react-toastify";
 import {
-  useUpdateProductMutation,
-  useGetProductDetailsQuery,
-  useUploadProductImageMutation,
-} from "../../slices/productsApiSlice";
+  useUpdateBookMutation,
+  useGetBookDetailsQuery,
+  useUploadBookImageMutation,
+} from "../../slices/booksApiSlice";
 
-const ProductEditScreen = () => {
-  const { id: productId } = useParams();
+const BookEditScreen = () => {
+  const { id: bookId } = useParams();
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
@@ -23,35 +23,35 @@ const ProductEditScreen = () => {
   const [description, setDescription] = useState("");
 
   const {
-    data: product,
+    data: book,
     isLoading,
     error,
-  } = useGetProductDetailsQuery(productId);
+  } = useGetBookDetailsQuery(bookId);
 
-  const [updateProduct, { isLoading: loadingUpdate }] =
-    useUpdateProductMutation();
+  const [updateBook, { isLoading: loadingUpdate }] =
+    useUpdateBookMutation();
 
-  const [uploadProductImage, { isLoading: loadingUpload }] =
-    useUploadProductImageMutation();
+  const [uploadBookImage, { isLoading: loadingUpload }] =
+    useUploadBookImageMutation();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (product) {
-      setName(product.name);
-      setPrice(product.price);
-      setImage(product.image);
-      setBrand(product.brand);
-      setCategory(product.category);
-      setCountInStock(product.countInStock);
-      setDescription(product.description);
+    if (book) {
+      setName(book.name);
+      setPrice(book.price);
+      setImage(book.image);
+      setBrand(book.brand);
+      setCategory(book.category);
+      setCountInStock(book.countInStock);
+      setDescription(book.description);
     }
-  }, [product]);
+  }, [book]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const updatedProduct = {
-      productId,
+    const updatedBook = {
+      bookId,
       name,
       price,
       image,
@@ -61,12 +61,12 @@ const ProductEditScreen = () => {
       description,
     };
 
-    const result = await updateProduct(updatedProduct);
+    const result = await updateBook(updatedBook);
     if (result.error) {
       toast.error(result.error);
     } else {
-      toast.success("Product updated");
-      navigate("/admin/productlist");
+      toast.success("Book updated");
+      navigate("/admin/booklist");
     }
   };
 
@@ -74,7 +74,7 @@ const ProductEditScreen = () => {
     const formData = new FormData();
     formData.append("image", e.target.files[0]);
     try {
-      const res = await uploadProductImage(formData).unwrap();
+      const res = await uploadBookImage(formData).unwrap();
       toast.success(res.message);
 
       // Normalize the path to always use forward slashes
@@ -87,7 +87,7 @@ const ProductEditScreen = () => {
 
   return (
     <>
-      <Link to="/admin/productlist" className="btn btn-light my-3">
+      <Link to="/admin/booklist" className="btn btn-light my-3">
         Voltar
       </Link>
       <FormContainer>
@@ -196,4 +196,4 @@ const ProductEditScreen = () => {
   );
 };
 
-export default ProductEditScreen;
+export default BookEditScreen;

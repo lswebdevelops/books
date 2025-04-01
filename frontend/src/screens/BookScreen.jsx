@@ -13,26 +13,26 @@ import {
 } from "react-bootstrap";
 import Rating from "../components/Rating";
 import {
-  useGetProductDetailsQuery,
+  useGetBookDetailsQuery,
   useCreateReviewMutation,
-} from "../slices/productsApiSlice";
+} from "../slices/booksApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { toast } from "react-toastify";
 
-const ProductScreen = () => {
-  const { id: productId } = useParams();
+const BookScreen = () => {
+  const { id: bookId } = useParams();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
   const {
-    data: product,
+    data: book,
     isLoading,
     refetch,
     error,
-  } = useGetProductDetailsQuery(productId);
+  } = useGetBookDetailsQuery(bookId);
 
-  const [createReview, { isLoading: loadingProductReview }] =
+  const [createReview, { isLoading: loadingBookReview }] =
     useCreateReviewMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
@@ -41,7 +41,7 @@ const ProductScreen = () => {
     e.preventDefault();
     try {
       await createReview({
-        productId,
+        bookId,
         rating,
         comment,
       }).unwrap();
@@ -66,21 +66,21 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
-          <Row className="upper-div-product">
+          <Row className="upper-div-book">
             <Col md={3} sm={8}>
               <Image
-                src={product.image}
-                alt={product.name}
-                className="image-product-book"
+                src={book.image}
+                alt={book.name}
+                className="image-book-book"
                 fluid
               />
             </Col>
             <Col md={9}>
-              <h3>{product.name}</h3>
+              <h3>{book.name}</h3>
 
               {/*  category > autor */}
-              <h4>{product.category}</h4>
-              <p>{product.description}</p>
+              <h4>{book.category}</h4>
+              <p>{book.description}</p>
             </Col>
           </Row>
 
@@ -89,9 +89,9 @@ const ProductScreen = () => {
           <Row>
             <Col md={3} sm={8}>
               <Rating
-                value={product.rating}
-                text={`${product.numReviews} ${
-                  product.numReviews === 1 ? "avaliação" : "avaliações"
+                value={book.rating}
+                text={`${book.numReviews} ${
+                  book.numReviews === 1 ? "avaliação" : "avaliações"
                 }`}
               />
             </Col>
@@ -104,7 +104,7 @@ const ProductScreen = () => {
                       <Col>Preço:</Col>
                       <Col>
                         <strong>
-                          R$&nbsp;{product.price.toFixed(2).replace(".", ",")}
+                          R$&nbsp;{book.price.toFixed(2).replace(".", ",")}
                         </strong>
                       </Col>
                     </Row>
@@ -114,7 +114,7 @@ const ProductScreen = () => {
                       <Col>Status:</Col>
                       <Col>
                         <strong>
-                          {product.countInStock > 0
+                          {book.countInStock > 0
                             ? "Em estoque"
                             : "Fora de estoque"}
                         </strong>
@@ -122,16 +122,16 @@ const ProductScreen = () => {
                     </Row>
                   </ListGroup.Item>
 
-                  {product.countInStock > 0 && (
+                  {book.countInStock > 0 && (
                     <Row className="available-books">
-                      <Col>Disponíveis: {product.countInStock}</Col>
+                      <Col>Disponíveis: {book.countInStock}</Col>
                     </Row>
                   )}
-                  {product.countInStock > 0 && (
+                  {book.countInStock > 0 && (
                     <Button
                       className="btn-block"
                       type="button"
-                      disabled={product.countInStock === 0}
+                      disabled={book.countInStock === 0}
                     >
                       <a
                         href="https://www.mercadolivre.com"
@@ -152,12 +152,12 @@ const ProductScreen = () => {
 
           <Row className="review">
             <Col md={6}>
-              <h2 className="product-rating-h2">Avaliações</h2>
-              {product.reviews.length === 0 && (
+              <h2 className="book-rating-h2">Avaliações</h2>
+              {book.reviews.length === 0 && (
                 <Message>Nenhuma Avaliação</Message>
               )}
               <ListGroup variant="flush">
-                {product.reviews.map((review) => (
+                {book.reviews.map((review) => (
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} />
@@ -169,9 +169,9 @@ const ProductScreen = () => {
                 ))}
 
                 <ListGroup.Item>
-                  <h2 className="product-rating-h2">Deixe sua Avaliação</h2>
+                  <h2 className="book-rating-h2">Deixe sua Avaliação</h2>
 
-                  {loadingProductReview && <Loader />}
+                  {loadingBookReview && <Loader />}
 
                   {userInfo ? (
                     <Form onSubmit={submitHandler}>
@@ -203,7 +203,7 @@ const ProductScreen = () => {
                         ></Form.Control>
                       </Form.Group>
                       <Button
-                        disabled={loadingProductReview}
+                        disabled={loadingBookReview}
                         type="submit"
                         variant="primary"
                       >
@@ -226,4 +226,4 @@ const ProductScreen = () => {
   );
 };
 
-export default ProductScreen;
+export default BookScreen;
