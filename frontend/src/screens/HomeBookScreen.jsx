@@ -66,6 +66,7 @@ const BookScreen = () => {
         </Message>
       ) : (
         <>
+          <div className="upper-div-book-div">
           <Row className="upper-div-book">
             <Col md={3} sm={8}>
               <Image
@@ -82,6 +83,8 @@ const BookScreen = () => {
             </Col>
           </Row>
 
+          </div>
+
           <hr />
 
           <Row>
@@ -95,16 +98,16 @@ const BookScreen = () => {
             </Col>
             <Col md={6}></Col>
             <Col md={3}>
-              <Card>
+              <Card  className="ml-button">
                 <ListGroup variant="flush">
-                  <Button className="btn-block" type="button">
+                  <Button className="btn-block " type="button">
                     <a
                       href="https://www.mercadolivre.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: "white", textDecoration: "none" }}
                     >
-                      Mercado Livre
+                     Comprar no Mercado Livre
                     </a>
                   </Button>
                 </ListGroup>

@@ -81,10 +81,10 @@ const Header = () => {
         {/* User Dropdown */}
         {userInfo ? (
           <NavDropdown title={userInfo.name} id="username">
-            <NavDropdown.Item as={Link} to="/profile">
+            <NavDropdown.Item className="perfil-link-a" as={Link} to="/profile">
               Meu Perfil
             </NavDropdown.Item>
-            <NavDropdown.Item onClick={logoutHandler}>
+            <NavDropdown.Item className="perfil-link-a" onClick={logoutHandler}>
               Sair
             </NavDropdown.Item>
           </NavDropdown>
@@ -92,26 +92,26 @@ const Header = () => {
           <Nav.Link as={Link} to="/login" className="d-flex align-items-center">
            
            <FaUser />          
-            <span className="ms-2 d-none d-lg-inline">Login</span>
+            <span className="ms-2 d-none d-lg-inline ">Login</span>
           </Nav.Link>
         )}
 
         {/* Admin Dropdown */}
         {userInfo?.isAdmin && (
           <NavDropdown title={<FaUserTie size={20} />} id="adminmenu">
-            <NavDropdown.Item as={Link} to="/admin/booklist">
+            <NavDropdown.Item as={Link} to="/admin/booklist" className="admin-menu-a">
               Editar Livros
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/admin/poemlist">
+            <NavDropdown.Item as={Link} to="/admin/poemlist" className="admin-menu-a">
               Editar Poemas
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/admin/bloglist">
+            <NavDropdown.Item as={Link} to="/admin/bloglist" className="admin-menu-a">
               Editar Blogs
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/admin/userlist">
+            <NavDropdown.Item as={Link} to="/admin/userlist" className="admin-menu-a">
               Editar Usuários
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/admin/email-list">
+            <NavDropdown.Item as={Link} to="/admin/email-list" className="admin-menu-a">
               Email Usuários
             </NavDropdown.Item>
           </NavDropdown>

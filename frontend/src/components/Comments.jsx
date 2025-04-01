@@ -41,6 +41,9 @@ const Comments = ({ entityId, entityType, comments, setComments }) => {
   };
 
   return (
+    <div className="comments-section-container">
+
+    
     <div className="comments-section">
       <h3>Comentários</h3>
 
@@ -58,6 +61,8 @@ const Comments = ({ entityId, entityType, comments, setComments }) => {
 
       {/* Mostrar formulário apenas para usuários autenticados */}
       {userInfo ? (
+        
+          
         <form onSubmit={submitHandler}>
           <textarea
             value={commentText}
@@ -67,9 +72,11 @@ const Comments = ({ entityId, entityType, comments, setComments }) => {
           ></textarea>
           <button type="submit">Enviar</button>
         </form>
+  
       ) : (
         <p>Faça login para comentar.</p>
       )}
+    </div>
     </div>
   );
 };

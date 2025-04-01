@@ -9,7 +9,8 @@ const BlogScreen = () => {
   
   
   return (
-    <div className="homeScreen">    
+    <div className="blogHomeScreenContainer">   
+    <div className="blogHomeScreen">    
  
       {isLoading ? (
         <Loader />
@@ -29,6 +30,7 @@ const BlogScreen = () => {
           </Row>
         </>
       )}
+    </div>
     </div>
   );
 };
