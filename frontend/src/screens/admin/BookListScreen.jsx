@@ -77,7 +77,7 @@ const BookListScreen = () => {
               <tr>
                 <th>Código</th>
                 <th>Título</th>
-                <th>Preço</th>
+                {/* <th>Preço</th> */}
                 <th>Autor</th>
                 <th>Editora</th>
                 <th></th>
@@ -88,7 +88,7 @@ const BookListScreen = () => {
                 <tr key={book._id}>
                   <td>{book._id}</td>
                   <td>{book.name}</td>
-                  <td>{`R$ ${book.price.toFixed(2).replace('.', ',')}`}</td>
+                  {/* <td>{`R$ ${book.price.toFixed(2).replace('.', ',')}`}</td> */}
                   <td>{book.category}</td>
                   <td>{book.brand}</td>
                   <td>

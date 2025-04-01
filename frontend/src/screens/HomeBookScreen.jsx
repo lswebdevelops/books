@@ -77,8 +77,6 @@ const BookScreen = () => {
             </Col>
             <Col md={9}>
               <h3>{book.name}</h3>
-
-              {/*  category > autor */}
               <h4>{book.category}</h4>
               <p>{book.description}</p>
             </Col>
@@ -99,50 +97,16 @@ const BookScreen = () => {
             <Col md={3}>
               <Card>
                 <ListGroup variant="flush">
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Preço:</Col>
-                      <Col>
-                        <strong>
-                          R$&nbsp;{book.price.toFixed(2).replace(".", ",")}
-                        </strong>
-                      </Col>
-                    </Row>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Status:</Col>
-                      <Col>
-                        <strong>
-                          {book.countInStock > 0
-                            ? "Em estoque"
-                            : "Fora de estoque"}
-                        </strong>
-                      </Col>
-                    </Row>
-                  </ListGroup.Item>
-
-                  {book.countInStock > 0 && (
-                    <Row className="available-books">
-                      <Col>Disponíveis: {book.countInStock}</Col>
-                    </Row>
-                  )}
-                  {book.countInStock > 0 && (
-                    <Button
-                      className="btn-block"
-                      type="button"
-                      disabled={book.countInStock === 0}
+                  <Button className="btn-block" type="button">
+                    <a
+                      href="https://www.mercadolivre.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "white", textDecoration: "none" }}
                     >
-                      <a
-                        href="https://www.mercadolivre.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: "white", textDecoration: "none" }}
-                      >
-                        Mercado Livre
-                      </a>
-                    </Button>
-                  )}
+                      Mercado Livre
+                    </a>
+                  </Button>
                 </ListGroup>
               </Card>
             </Col>

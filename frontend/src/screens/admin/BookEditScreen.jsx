@@ -109,7 +109,7 @@ const BookEditScreen = () => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="price" className="my-2">
+            {/* <Form.Group controlId="price" className="my-2">
               <Form.Label>Preço</Form.Label>
               <Form.Control
                 type="text"
@@ -124,7 +124,7 @@ const BookEditScreen = () => {
                   }
                 }}
               ></Form.Control>
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="image" className="my-2">
               <Form.Label>Imagem</Form.Label>
@@ -153,7 +153,7 @@ const BookEditScreen = () => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="countInStock" className="my-2">
+            {/* <Form.Group controlId="countInStock" className="my-2">
               <Form.Label>Quantidade em estoque</Form.Label>
               <Form.Control
                 type="number"
@@ -161,7 +161,7 @@ const BookEditScreen = () => {
                 value={countInStock}
                 onChange={(e) => setCountInStock(parseInt(e.target.value))}
               ></Form.Control>
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="category" className="my-2">
               {/*  autor > category */}

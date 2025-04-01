@@ -12,7 +12,6 @@ import { toast } from "react-toastify";
 const BlogDetailsScreen = () => {
   const { id } = useParams();
   const { data: blog, isLoading, error, refetch } = useGetBlogDetailsQuery(id);
-  console.log(blog); // Verifique se "comments" está presente
 
   const [comment, setComment] = useState("");
   const [addComment] = useAddCommentToBlogMutation();
@@ -85,7 +84,10 @@ const BlogDetailsScreen = () => {
                       </p>
                       <p className="comment-content">{comment.content}</p>
                       <small className="comment-author">
-                        Comentado por: {comment.user.name.split(" ")[0]}
+                        Comentado por:{" "}
+                        {comment.user?.name
+                          ? comment.user.name.split(" ")[0]
+                          : "Ex-usuário"}
                       </small>
                     </li>
                   ))}
