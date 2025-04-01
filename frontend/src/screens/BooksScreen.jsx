@@ -17,6 +17,9 @@ const BookScreen = () => {
   });
 
   return (
+    <div className="bookHomeScreenContainer">
+
+   
     <div className="homeScreen">
       {!keyword ? (
         // for showing the carousel "comment out || uncomment"
@@ -50,6 +53,7 @@ const BookScreen = () => {
           />
         </>
       )}
+    </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 main {
   min-height: 80vh;
+ 
 }
 
 .rating span {
@@ -12,6 +13,7 @@ main {
 
 .book-rating-h2 {
   border-radius: 8px;
+ 
 }
 .rating-text {
   font-size: 0.8rem;
@@ -70,8 +72,13 @@ table th {
 .available-books {
   padding: 10px 10px 10px 20px;
 }
+.upper-div-book-div{
+  display: flex;
+  justify-content: center;
+}
 .upper-div-book {
   margin-bottom: 25px;
+  max-width: 1140px;
 }
 .upper-div-book img {
   box-shadow: 8px 2px 5px rgba(0, 0, 0, 0.3), 0px 4px 15px rgba(0, 0, 0, 0.05);
@@ -84,6 +91,11 @@ table th {
   animation: moveFromLeft 1.2s ease-out; /* Adjust timing and easing as needed */
 }
 
+/* nav bar */
+.nav-header span{
+  font-size: 0.9rem;
+}
+
 @keyframes moveFromLeft {
   from {
     transform: translateX(-100%); /* Start off-screen to the left */
@@ -91,6 +103,16 @@ table th {
   to {
     transform: translateX(0); /* Move to its original position */
   }
+}
+.poems-containers-div{
+  display: flex;
+  justify-content: center;
+}
+.poems-containers-div p{
+font-size: 0.9rem;
+}
+#poems-containers{
+  max-width: 1140px;
 }
 .poemLink {
   text-decoration: none;
@@ -147,8 +169,7 @@ main > * {
 .upper-div-poem {
   background-image: url("../../assets/library-book-book-read.jpg");
   background-size: cover;
-  border-radius: 8px;
-  font-family: Parisienne  , serif;
+  border-radius: 8px;  
   box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.5), 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
 #poem-content {
@@ -161,7 +182,7 @@ main > * {
   word-wrap: break-word; /* Ensures long words break */
   word-break: break-all; /* Forces breaking long words */
   overflow-wrap: break-word; /* More reliable word breaking */
-  font-size: 1.2rem;;
+  font-size: 1rem;;
 }
 
 #poem-content {
@@ -239,6 +260,7 @@ main > * {
 .bio-content,
 .upper-div-book p,
 .poemContainer {
+  
   position: relative;
   opacity: 0; /* Start fully transparent */
   animation: fadeIn 3s ease-out forwards; /* Wait for 1.2s and then become visible */
@@ -453,17 +475,28 @@ p {
 
 /* header */
 .nav-header {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
+}
+.admin-menu-a, .perfil-link-a{
+  font-size: 0.8rem;
 }
 
 /* blog */
-.container-blog-details {
-  font-family: Garamond, serif;
-
+.blogHomeScreenContainer,.bookHomeScreenContainer {
+  display: flex;
+  
+  justify-content: center; /* Centers the inner div horizontally */
+  padding: 25px;
 }
+
+.blogHomeScreen,.bookHomeScreen {
+  max-width: 1140px;
+  width: 100%; /* Optional: Ensures responsiveness */
+}
+
 #blog-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   overflow: hidden; /* Hide overflow content */
   text-overflow: ellipsis; /* Add ellipsis for long text */
   white-space: nowrap; /* Prevent wrapping */
@@ -507,13 +540,23 @@ a {
 .blog-content {
   font-size: 1rem; 
   line-height: 1.8;
+  margin-top: 24px;;
 }
-
+.container-blog-details-div{
+  display: flex;
+  justify-content: center;
+}
 .container-blog-details {
   border: #131b11 1px solid;
   padding-top: 20px;
+  max-width: 1140px;;
 }
-
+.container-blog-details h3 {
+  font-size: 1.6rem;;
+}
+.container-blog-details p {
+  font-size: 1rem;;
+}
 .blog-author-blog-genetal{
   font-size: 1.2rem;
   align-self: flex-end;
@@ -543,14 +586,32 @@ a {
 .icon-bio-header {
   margin: 23px 15px;
 }
+.comment-form-container-div{
+  display: flex;
+  justify-content: center;
+}
 
-
+.comments-section-container{ 
+  display: flex;
+  justify-content: center;
+}
 .comments-section {
   margin-top: 20px;
+  display: flex;
+  justify-content: flex-start; /* Ensures items start from the left */
+  align-items: flex-start; /* Aligns items to the top if needed */
   padding: 20px;
+  width: 100%;
+  max-width: 1140px;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;;
+}
+
+.ml-button{
+  margin-top: 15px;;
+  margin-bottom: 15px;;
 }
 
 .comments-title {

@@ -39,6 +39,9 @@ const PoemScreen = () => {
             {errorPoems?.data?.message || errorPoems.error}
           </Message>
         ) : (
+          <div className="poems-containers-div">
+
+         
           <Row id="poems-containers">
             {poems.map((poemItem) => (
               <Col key={poemItem._id} sm={12} md={6} lg={4} className="mb-3">
@@ -60,6 +63,7 @@ const PoemScreen = () => {
               </Col>
             ))}
           </Row>
+          </div>
         )}
       </>
     );
