@@ -8,11 +8,15 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { Row, Col, Image, Form, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const BlogDetailsScreen = () => {
   const { id } = useParams();
   const { data: blog, isLoading, error, refetch } = useGetBlogDetailsQuery(id);
+  const userInfo = useSelector((state) => state.auth.userInfo);
 
+  console.log(userInfo)
+  
   const [comment, setComment] = useState("");
   const [addComment] = useAddCommentToBlogMutation();
 
@@ -80,7 +84,9 @@ const BlogDetailsScreen = () => {
                   {blog.comments.map((comment, index) => (
                     <li key={index} className="comment-item">
                       <p className="comment-author">
-                        {new Date(comment.createdAt).toLocaleDateString("pt-BR")}
+                        {new Date(comment.createdAt).toLocaleDateString(
+                          "pt-BR"
+                        )}
                       </p>
                       <p className="comment-content">{comment.content}</p>
                       <small className="comment-author">
@@ -103,22 +109,32 @@ const BlogDetailsScreen = () => {
           {/* Formulário para adicionar comentário */}
           <Row className="comment-form">
             <Col md={8}>
-              <h4>Deixe um comentário</h4>
-              <Form onSubmit={submitCommentHandler}>
-                <Form.Group controlId="comment">
-                  <Form.Control
-                    as="textarea"
-                    rows={3}
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                    placeholder="Escreva seu comentário..."
-                    className="comment-textarea"
-                  />
-                </Form.Group>
-                <Button type="submit" variant="primary" className="comment-submit-btn">
-                  Enviar
-                </Button>
-              </Form>
+            {userInfo ? (  // Verifica se o usuário está logado
+  <>
+    <h4>Deixe um comentário</h4>
+    <Form onSubmit={submitCommentHandler}>
+      <Form.Group controlId="comment">
+        <Form.Control
+          as="textarea"
+          rows={3}
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder="Escreva seu comentário..."
+          className="comment-textarea"
+        />
+      </Form.Group>
+      <Button type="submit" variant="primary" className="comment-submit-btn">
+        Enviar
+      </Button>
+    </Form>
+  </>
+) : (
+  <Message variant="warning">
+    Você precisa estar logado para comentar.{" "}
+    <Link to="/login" className="btn btn-link">Faça login aqui</Link>
+  </Message>
+)}
+
             </Col>
           </Row>
         </>
