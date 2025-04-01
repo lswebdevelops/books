@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,18 +25,18 @@ const LoginScreen = () => {
 
   useEffect(() => {
     if (userInfo) {
-      navigate(redirect);
+      navigate(redirect); // Redireciona após login se userInfo estiver disponível
     }
   }, [userInfo, redirect, navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await login({ email, password }).unwrap();
-      dispatch(setCredentials({ ...res }));
-      navigate(redirect);
+      const res = await login({ email, password }).unwrap(); // Realiza a mutação de login
+      dispatch(setCredentials({ ...res })); // Armazena as credenciais no Redux
+      navigate(redirect); // Redireciona após login
     } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      toast.error(err?.data?.message || err.error || "Erro inesperado"); // Mensagem de erro
     }
   };
 
@@ -69,11 +68,11 @@ const LoginScreen = () => {
           type="submit"
           variant="primary"
           className="mt-2"
-          disabled={isLoading}
+          disabled={isLoading} // Desabilita o botão enquanto está carregando
         >
-          Entrar
+          {isLoading ? "Carregando..." : "Entrar"} {/* Texto dinâmico no botão */}
         </Button>
-        {isLoading && <Loader />}
+        {isLoading && <Loader />} {/* Exibe loader enquanto está carregando */}
       </Form>
 
       <Row className="py-3">
