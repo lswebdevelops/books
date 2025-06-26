@@ -36,6 +36,7 @@ Install dependencies
 
 npm install
 
+create a file in the root directory: .env (see example.env)
 Start the development server
 /root folder(not in backend folder) 
 npm run server
