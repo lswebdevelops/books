@@ -37,7 +37,10 @@ Install dependencies
 npm install
 
 Start the development server
+/root folder(not in backend folder) 
+npm run server
 
+in /frontend:
 npm start
 
 
