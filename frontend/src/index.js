@@ -45,6 +45,7 @@ import BlogCreateScreen from "./screens/admin/BlogCreateScreen";
 import BiographyScreen from "./screens/BiographyScreen";
 import UsersEmailListScreen from "./screens/admin/UsersEmailListScreen"; // Import UsersEmailListScreen
 import UpcomingScreen from "./screens/UpcomingScreen";
+import NotFoundScreen from "./components/NotFoundScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -56,6 +57,8 @@ const router = createBrowserRouter(
         path="/search/:keyword/page/:pageNumber"
         element={<HomeScreen />}
       />
+      <Route path="*" element={<NotFoundScreen />} />
+
       <Route path="/book/:id" element={<HomeBookScreen />} />
       <Route path="/cart/" element={<CartScreen />} />
       <Route path="/login/" element={<LoginScreen />} />
