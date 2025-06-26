@@ -6,7 +6,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 import { resetCart } from "../slices/cartSlice";
-import logo from "../assets/logohw.png";
 import SearchBox from "./SearchBox";
 
 const Header = () => {
@@ -33,7 +32,7 @@ const Header = () => {
   <Container>
     {/* Logo */}
     <Navbar.Brand href="/">
-      <img src={logo} alt="logo of HW" className="logo-hw" />
+      <img src="https://res.cloudinary.com/dvnxrzpnl/image/upload/v1750947854/logohw_jsfqfq.png" alt="logo of HW" className="logo-hw" />
     </Navbar.Brand>
    
 

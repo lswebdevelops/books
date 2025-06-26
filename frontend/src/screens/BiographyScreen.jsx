@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Row, Col, Image } from "react-bootstrap";
 import { FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import skoobLogo from '../assets/skoob_icon.jpeg';
+
 
 const BiographyScreen = () => {
   const [biography, setBiography] = useState([]);
@@ -50,7 +50,7 @@ const BiographyScreen = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={skoobLogo} alt="Skoob logo" style={{ height: "35px"}} />
+            <img src="https://res.cloudinary.com/dvnxrzpnl/image/upload/v1750947861/skoob_icon_w3htir.jpg" alt="Skoob logo" style={{ height: "35px"}} />
           </Link>
           </div>
           <hr />

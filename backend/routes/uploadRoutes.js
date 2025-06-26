@@ -1,53 +1,37 @@
-import path from 'path';
-import express from 'express';
-import multer from 'multer';
+import path from "path";
+import express from "express";
+import multer from "multer";
+import cloudinary from "cloudinary";
+import fs from "fs";
 
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename(req, file, cb) {
-    cb(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    );
-  },
+// Configure cloudinary
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-function fileFilter(req, file, cb) {
-  const filetypes = /jpe?g|png|webp/;
-  const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
-
+// multer temp local storage
+const storage = multer.diskStorage({ destination: "uploads/" });
+const fileFilter = (req, file, cb) => {
+  const filetypes = /jpeg|jpg|png|webp/;
+  const mimetypes = /image\/jpeg|image\/jpg|image\/png|image\/webp/;
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   const mimetype = mimetypes.test(file.mimetype);
-
-  if (extname && mimetype) {
-    cb(null, true);
-  } else {
-    cb(new Error('Images only!'), false);
-  }
-}
-
+  if (extname && mimetype) cb(null, true); else cb(new Error("Images only!"), false);
+};
 const upload = multer({ storage, fileFilter });
-const uploadSingleImage = upload.single('image');
 
-// Serve static uploads folder
-const __dirname = path.resolve();
-router.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-router.post('/', (req, res) => {
-  uploadSingleImage(req, res, function (err) {
-    if (err) {
-      return res.status(400).send({ message: err.message });
-    }
-
-    res.status(200).send({
-      message: 'Image uploaded successfully',
-      image: `/uploads/${req.file.filename}`, // Fixed to use '/' for the path
-    });
-  });
+router.post("/", upload.single("image"), async (req, res) => {
+  try {
+    const result = await cloudinary.v2.uploader.upload(req.file.path);
+    fs.unlinkSync(req.file.path); // delete temp file
+    res.status(200).json({ url: result.secure_url });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 export default router;

@@ -12,7 +12,7 @@ const importData = async () => {
     const blog = {
       title: "New Blog",
       author: "Harry Wiese",
-      image: "/uploads/newblogpost.jpg",
+      image: "https://res.cloudinary.com/dvnxrzpnl/image/upload/v1750946746/picture-blog_soomd8.png",
       content: "cinco anos de experiência como professor de língua portuguesa - do ensino fundamental até cursos de pós-graduação em diversas universidades. Pesquisador da história da colonização do Vale do Itajaí, em Santa Catarina. Autor dos livros Meu canto-amar; Girata de espantos; Nebusosa de amor: Contos e poemas de Natal; De Neu-Zürich a Presidente Getúlio: uma história de sucesso; A inserção da língua portuguesa na Colônia Hammonia, Terra da fartura: história da colonização de Ibirama e A sétima caverna. Graduado em Letras, especialista em Metodologia de Ensino e Mestre em Educação – Ensino Superior. É professor no Colégio São Paulo, de Ascurra e funcionário da UNIASSELVI de Indaial.",
     };
 
