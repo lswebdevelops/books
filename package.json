@@ -9,11 +9,11 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder.js",
     "data:destroy": "node backend/seeder.js -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "npm run build --prefix frontend"
   },
-  "author": "",
+  "author": "Luciano Sardanha",
   "license": "ISC",
-  "description": "",
+  "description": "Harry Wiese website backend and frontend",
   "type": "module",
   "dependencies": {
     "bcryptjs": "^2.4.3",

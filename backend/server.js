@@ -47,7 +47,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // uncomment for production build
 // then add this script to the root package.json (   "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend") and to .env :> NODE_ENV=development change to production
-
+// better : >> "build": "npm run build --prefix frontend" (chatgpt)
 if (process.env.NODE_ENV === 'production') {
   //  set static folder
   app.use(express.static(path.join(__dirname, '/frontend/build')));
