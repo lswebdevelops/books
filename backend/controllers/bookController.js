@@ -46,7 +46,7 @@ const createBook = asyncHandler(async (req, res) => {
     name: "Título da obra",
     price: 0,
     user: req.user._id,
-    image: "/images/samplebook2.png",
+    image: "https://res.cloudinary.com/dvnxrzpnl/image/upload/v1750946977/samplebook2_qrxwni.png",
     brand: "Editora X",
     category: "Harry Wiese",
     countInStock: 0,

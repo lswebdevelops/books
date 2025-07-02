@@ -46,7 +46,7 @@ const BookScreen = () => {
         comment,
       }).unwrap();
       refetch();
-      toast.success("Review Submitted");
+      toast.success("Review adicionado");
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }

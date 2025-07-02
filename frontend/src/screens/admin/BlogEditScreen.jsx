@@ -104,12 +104,7 @@ const BlogEditScreen = () => {
 
             <Form.Group controlId="image" className="my-2">
               <Form.Label>Imagem</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Escolha arquivo"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-              ></Form.Control>
+              
               <Form.Control
                 type="file"
                 label="Escolha arquivo"

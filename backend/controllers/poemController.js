@@ -20,7 +20,7 @@ const getPoemById = asyncHandler(async (req, res) => {
     res.json(poem);
   } else {
     res.status(404);
-    throw new Error("Poem not found");
+    throw new Error("Poema não encontrado");
   }
 });
 
@@ -86,7 +86,7 @@ const updatePoem = asyncHandler(async (req, res) => {
     res.json(updatedPoem);
   } else {
     res.status(404);
-    throw new Error("Poem not found");
+    throw new Error("Poema não encontrado");
   }
 });
 
@@ -98,10 +98,10 @@ const deletePoem = asyncHandler(async (req, res) => {
 
   if (poem) {
     await Poem.deleteOne({ _id: poem._id });
-    res.status(200).json({ message: "Poem deleted" });
+    res.status(200).json({ message: "Poema deletado" });
   } else {
     res.status(404);
-    throw new Error("Poem not found");
+    throw new Error("Poema não encontrado");
   }
 });
 
@@ -120,7 +120,7 @@ const createPoemReview = asyncHandler(async (req, res) => {
 
     if (alreadyReviewed) {
       res.status(400);
-      throw new Error("Poem already reviewed");
+      throw new Error("Poema já revisado");
     }
 
     // Create new review
@@ -140,10 +140,10 @@ const createPoemReview = asyncHandler(async (req, res) => {
       poem.reviews.length;
 
     await poem.save();
-    res.status(201).json({ message: "Review added" });
+    res.status(201).json({ message: "Review adicionado" });
   } else {
     res.status(404);
-    throw new Error("Poem not found");
+    throw new Error("Poema não encontrado");
   }
 });
 
