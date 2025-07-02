@@ -2,7 +2,7 @@ import asyncHandler from "../middleware/asyncHandler.js";
 import Blog from "../models/blogModel.js";
 import Comment from "../models/commentModel.js";
 import cloudinary from "../config/cloudinary.js";
-import fs from 'fs';
+import fs from "fs";
 
 // @desc Fetch all blogs
 // @route GET /api/blogs
@@ -18,14 +18,13 @@ const getBlogs = asyncHandler(async (req, res) => {
 // @access Public
 
 const getBlogById = asyncHandler(async (req, res) => {
-  const blog = await Blog.findById(req.params.id)
-    .populate({
-      path: 'comments', // Populating comments
-      populate: {
-        path: 'user', // Populating the user within the comment
-        select: 'name', // Select only the 'name' of the user (you can adjust based on your User model)
-      },
-    });
+  const blog = await Blog.findById(req.params.id).populate({
+    path: "comments", // Populating comments
+    populate: {
+      path: "user", // Populating the user within the comment
+      select: "name", // Select only the 'name' of the user (you can adjust based on your User model)
+    },
+  });
 
   if (blog) {
     res.json(blog); // Return the blog with populated comments and users
@@ -35,7 +34,6 @@ const getBlogById = asyncHandler(async (req, res) => {
   }
 });
 
-
 // @desc Create a new blog
 // @route POST /api/blogs
 // @access Private admin
@@ -43,9 +41,11 @@ const getBlogById = asyncHandler(async (req, res) => {
 const createBlog = asyncHandler(async (req, res) => {
   const blog = new Blog({
     title: "Novo Artigo",
-    image: "https://res.cloudinary.com/dvnxrzpnl/image/upload/v1750946746/picture-blog_soomd8.png",
+    image:
+      "https://res.cloudinary.com/dvnxrzpnl/image/upload/v1750946746/picture-blog_soomd8.png",
     author: "Harry Wiese",
-    content: "Sample é o destino perfeito para mentes curiosas que buscam inspiração, conhecimento e entretenimento. Com artigos envolventes sobre tecnologia, cultura, ciência e estilo de vida, nosso blog traz análises aprofundadas, dicas práticas e reflexões instigantes sobre o mundo moderno. Seja para descobrir novas tendências, explorar ideias inovadoras ou simplesmente encontrar uma boa leitura, o Blog Sample é o seu ponto de encontro com o conhecimento.",
+    content:
+      "Sample é o destino perfeito para mentes curiosas que buscam inspiração, conhecimento e entretenimento. Com artigos envolventes sobre tecnologia, cultura, ciência e estilo de vida, nosso blog traz análises aprofundadas, dicas práticas e reflexões instigantes sobre o mundo moderno. Seja para descobrir novas tendências, explorar ideias inovadoras ou simplesmente encontrar uma boa leitura, o Blog Sample é o seu ponto de encontro com o conhecimento.",
   });
 
   const createdBlog = await blog.save();
@@ -75,7 +75,6 @@ const updateBlog = asyncHandler(async (req, res) => {
   }
 });
 
-
 // @desc Add a comment to a blog
 // @route POST /api/blogs/:id/comments
 // @access Private
@@ -101,7 +100,7 @@ const addCommentToBlog = asyncHandler(async (req, res) => {
     user: req.user._id, // Assuming you are using req.user from auth middleware
     content,
     entityId,
-    entityType: 'blog', // You can set the entityType to 'blog' to know what type of entity the comment belongs to
+    entityType: "blog", // You can set the entityType to 'blog' to know what type of entity the comment belongs to
   });
 
   // Save the comment
@@ -129,11 +128,15 @@ const deleteBlog = asyncHandler(async (req, res) => {
       await Comment.deleteMany({ entityId: req.params.id });
 
       // Excluindo o blog
-      await Blog.findByIdAndDelete(req.params.id);  // Substitua o método remove por findByIdAndDelete
-      res.status(200).json({ message: "Blog e seus comentários foram deletados." });
+      await Blog.findByIdAndDelete(req.params.id); // Substitua o método remove por findByIdAndDelete
+      res
+        .status(200)
+        .json({ message: "Blog e seus comentários foram deletados." });
     } catch (error) {
       console.error("Erro ao deletar blog ou comentários:", error);
-      res.status(500).json({ message: "Erro interno ao tentar excluir o blog." });
+      res
+        .status(500)
+        .json({ message: "Erro interno ao tentar excluir o blog." });
     }
   } else {
     res.status(404);
@@ -144,7 +147,7 @@ const deleteBlog = asyncHandler(async (req, res) => {
 // @desc    Upload image to Cloudinary
 // @route   POST /api/upload
 // @access  Private/Admin
-const uploadImage = asyncHandler(async (req, res) => {
+const uploadBlogImage = asyncHandler(async (req, res) => {
   const file = req.file;
 
   if (!file) {
@@ -165,7 +168,12 @@ const uploadImage = asyncHandler(async (req, res) => {
   });
 });
 
-
-
-
-export { getBlogs, getBlogById, createBlog,  uploadImage, updateBlog, deleteBlog, addCommentToBlog };
+export {
+  getBlogs,
+  getBlogById,
+  createBlog,
+  uploadBlogImage,
+  updateBlog,
+  deleteBlog,
+  addCommentToBlog,
+};

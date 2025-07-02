@@ -10,7 +10,7 @@ import {
   updateBlog,
   deleteBlog,
   addCommentToBlog,
-  uploadImage, 
+  uploadBlogImage, // ✅ Pode deixar só aqui
 } from "../controllers/blogController.js";
 
 
@@ -20,7 +20,7 @@ const router = express.Router();
 router.route("/").get(getBlogs).post(protect, admin, createBlog);
 
 // rota de upload de imagem
-router.post("/upload", protect, admin, upload.single("image"), uploadImage);
+router.post("/upload", protect, admin, upload.single("image"), uploadBlogImage);
 
 router
   .route("/:id")
