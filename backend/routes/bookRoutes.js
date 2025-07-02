@@ -1,5 +1,8 @@
 import express from "express";
-const router = express.Router();
+import { protect, admin } from "../middleware/authMiddleware.js";
+import { upload } from "../middleware/uploadMiddleware.js";
+import checkObjectId from "../middleware/checkObjectId.js";
+
 import {
   getBookById,
   getBooks,
@@ -8,14 +11,20 @@ import {
   deleteBook,
   createBookReview,
   getTopBooks,
+  uploadBookImage, // ✅ IMPORTA AQUI
 } from "../controllers/bookController.js";
-import { protect, admin } from "../middleware/authMiddleware.js";
-import checkObjectId from "../middleware/checkObjectId.js";
+
+const router = express.Router();
 
 router.route("/").get(getBooks).post(protect, admin, createBook);
-router.route("/:id/reviews").post(protect, checkObjectId,createBookReview);
+
+// ✅ NOVA ROTA DE UPLOAD
+router.post("/upload", protect, admin, upload.single("image"), uploadBookImage);
+
+router.route("/:id/reviews").post(protect, checkObjectId, createBookReview);
 
 router.get("/top", getTopBooks);
+
 router
   .route("/:id")
   .get(getBookById)

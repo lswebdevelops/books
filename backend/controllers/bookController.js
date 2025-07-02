@@ -1,5 +1,7 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import Book from "../models/bookModel.js";
+import cloudinary2 from "../config/cloudinary2.js";
+import fs from "fs";
 
 // @desc Fetch all books
 // @route get /api/books
@@ -149,6 +151,36 @@ const getTopBooks = asyncHandler(async (req, res) => {
   const books = await Book.find({}).sort({ rating: -1 }).limit(3);
   res.status(200).json(books);
 });
+
+// @desc    Upload image to Cloudinary
+// @route   POST /api/upload
+// @access  Private/Admin
+
+const uploadBookImage = asyncHandler(async (req, res) => {
+  const file = req.file;
+
+  if (!file) {
+    res.status(400);
+    throw new Error("Nenhum arquivo enviado");
+  }
+
+  const uploadResult = await cloudinary2.uploader.upload(file.path, {
+    folder: "books", // <- isso define a pasta correta
+  });
+
+  // 🔍 Adicione isto:
+  console.log("Upload result (BOOK):", uploadResult);
+
+  fs.unlinkSync(file.path);
+
+  res.status(200).json({
+    message: "Imagem enviada com sucesso",
+    image: uploadResult.secure_url,
+  });
+});
+
+
+
 export {
   getBooks,
   getBookById,
@@ -157,4 +189,5 @@ export {
   deleteBook,
   createBookReview,
   getTopBooks,
+  uploadBookImage,
 };
