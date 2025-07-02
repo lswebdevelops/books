@@ -1,6 +1,8 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import Blog from "../models/blogModel.js";
 import Comment from "../models/commentModel.js";
+import cloudinary from "../config/cloudinary.js";
+import fs from 'fs';
 
 // @desc Fetch all blogs
 // @route GET /api/blogs
@@ -139,10 +141,31 @@ const deleteBlog = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Upload image to Cloudinary
+// @route   POST /api/upload
+// @access  Private/Admin
+const uploadImage = asyncHandler(async (req, res) => {
+  const file = req.file;
+
+  if (!file) {
+    res.status(400);
+    throw new Error("Nenhum arquivo enviado");
+  }
+
+  const uploadResult = await cloudinary.uploader.upload(file.path, {
+    folder: "blogs",
+  });
+
+  // Remover o arquivo local temporário
+  fs.unlinkSync(file.path);
+
+  res.status(200).json({
+    message: "Imagem enviada com sucesso",
+    image: uploadResult.secure_url, // Isso será usado no front
+  });
+});
 
 
 
 
-
-
-export { getBlogs, getBlogById, createBlog, updateBlog, deleteBlog, addCommentToBlog };
+export { getBlogs, getBlogById, createBlog,  uploadImage, updateBlog, deleteBlog, addCommentToBlog };

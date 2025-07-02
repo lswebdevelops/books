@@ -42,7 +42,7 @@ const BlogEditScreen = () => {
     }
   }, [blog]);
 
-  const submitHandler = async (e) => {
+ const submitHandler = async (e) => {
     e.preventDefault();
     const updatedBlog = {
       blogId,
@@ -51,6 +51,8 @@ const BlogEditScreen = () => {
       author,
       content,
     };
+
+    console.log("Image state before updateBlog:", image); // ADD THIS LINE
 
     const result = await updateBlog(updatedBlog);
     if (result.error) {
@@ -62,19 +64,23 @@ const BlogEditScreen = () => {
   };
 
   const uploadFileHandler = async (e) => {
-    const formData = new FormData();
-    formData.append("image", e.target.files[0]);
-    try {
-      const res = await uploadBlogImage(formData).unwrap();
-      toast.success(res.message);
+  const formData = new FormData();
+  formData.append("image", e.target.files[0]);
 
-      // Normalize the path to always use forward slashes
-      const imageUrl = res.image.replace(/\\/g, "/");
-      setImage(imageUrl); // Set the normalized image URL
-    } catch (err) {
-      toast.error(err?.data?.message || err.error);
-    }
-  };
+  try {
+    const res = await uploadBlogImage(formData).unwrap();
+
+    console.log("Resposta do upload:", res); // ✅ ADICIONE AQUI
+
+    toast.success(res.message);
+
+   const imageUrl = res.image;
+setImage(imageUrl);
+
+  } catch (err) {
+    toast.error(err?.data?.message || err.error);
+  }
+};
 
   return (
     <>
