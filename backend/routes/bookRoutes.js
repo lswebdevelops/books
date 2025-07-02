@@ -1,6 +1,6 @@
 import express from "express";
 import { protect, admin } from "../middleware/authMiddleware.js";
-import { upload } from "../middleware/uploadMiddleware.js";
+import { upload } from "../middleware/uploadBlogImagesMiddleware.js";
 import checkObjectId from "../middleware/checkObjectId.js";
 
 import {
