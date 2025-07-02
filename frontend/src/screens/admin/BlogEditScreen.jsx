@@ -52,13 +52,13 @@ const BlogEditScreen = () => {
       content,
     };
 
-    console.log("Image state before updateBlog:", image); // ADD THIS LINE
+    // console.log("Image state before updateBlog:", image); 
 
     const result = await updateBlog(updatedBlog);
     if (result.error) {
       toast.error(result.error);
     } else {
-      toast.success("Blog updated");
+      toast.success("Blog atualizado");
       navigate("/admin/bloglist");
     }
   };
@@ -70,7 +70,7 @@ const BlogEditScreen = () => {
   try {
     const res = await uploadBlogImage(formData).unwrap();
 
-    console.log("Resposta do upload:", res); // ✅ ADICIONE AQUI
+    // console.log("Resposta do upload:", res); 
 
     toast.success(res.message);
 

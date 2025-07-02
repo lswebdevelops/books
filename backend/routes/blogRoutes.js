@@ -1,5 +1,5 @@
 import express from "express";
-import { upload } from "../middleware/uploadMiddleware.js";
+import { upload } from "../middleware/uploadBlogImagesMiddleware.js";
 import { protect, admin } from "../middleware/authMiddleware.js";
 import checkObjectId from "../middleware/checkObjectId.js";
 
@@ -10,7 +10,7 @@ import {
   updateBlog,
   deleteBlog,
   addCommentToBlog,
-  uploadImage, // ✅ Pode deixar só aqui
+  uploadImage, 
 } from "../controllers/blogController.js";
 
 
