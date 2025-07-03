@@ -14,7 +14,7 @@ const UpcomingScreen = () => {
             <img
               className="image-upcoming"
               src={book.image}
-              alt="`cover of ${book.title}"
+              alt=" cover of book title "
             />
           </div>
           <div className="div-text-container-upcoming">

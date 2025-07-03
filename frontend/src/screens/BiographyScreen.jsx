@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Row, Col, Image } from "react-bootstrap";
+import { useEffect, useState } from "react";
+
 import { FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import skoobLogo from '../assets/skoob_icon.jpeg';
 
 const BiographyScreen = () => {
   const [biography, setBiography] = useState([]);

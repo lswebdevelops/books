@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import { Table, Form, Button, Row, Col } from "react-bootstrap";
+import {  Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
-import Message from "../components/Message";
+
 import Loader from "../components/Loader";
 import { useProfileMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
-import { useGetMyOrdersQuery } from "../slices/ordersApiSlice";
-import { FaTimes } from "react-icons/fa";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
@@ -23,8 +20,7 @@ const ProfileScreen = () => {
   const [updateProfile, { isLoading: loadingUpdateProfile }] =
     useProfileMutation();
 
-  const { data: orders, isLoading, error } = useGetMyOrdersQuery();
-
+  
   useEffect(() => {
     if (userInfo) {
       setName(userInfo.name);

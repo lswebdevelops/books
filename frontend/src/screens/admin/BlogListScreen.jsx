@@ -4,13 +4,10 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
-import Paginate from "../../components/Paginate";
+
 import {
-  useUpdateBlogMutation,
-  useGetBlogDetailsQuery,
   useGetBlogsQuery,
   useCreateBlogMutation,
-  useUploadBlogImageMutation,
   useDeleteBlogMutation,
 } from "../../slices/blogsApiSlice";
 import { toast } from "react-toastify";
