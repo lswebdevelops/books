@@ -46,6 +46,7 @@ const __dirname = path.resolve(); // set __dirname to current directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // uncomment for production build
+// change env> NODE_ENV > to production
 // then add this script to the root package.json (   "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend") and to .env :> NODE_ENV=development change to production
 
 if (process.env.NODE_ENV === 'production') {
